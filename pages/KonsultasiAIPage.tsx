@@ -28,7 +28,7 @@ const KonsultasiAIPage: React.FC = () => {
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const [sessionStarted, setSessionStarted] = useState(false);
   
-  const isPremium = currentUser?.subscriptionStatus === 'premium';
+  const isPremium = currentUser?.subscription_status === 'premium';
 
   useEffect(() => {
     if (!sessionStarted && isPremium) {

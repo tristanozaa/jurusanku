@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc, serverTimestamp } from "firebase/firestore";
-import { auth, db } from '../services/firebase';
+import { supabase } from '../services/supabase';
 
 
 const RegisterPage: React.FC = () => {
@@ -32,31 +30,56 @@ const RegisterPage: React.FC = () => {
     setLoading(true);
     
     try {
-        // 1. Create user in Firebase Authentication
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user!;
-
-        // 2. Create a corresponding user document in Firestore
-        const userDocRef = doc(db, "users", user.uid);
-        await setDoc(userDocRef, {
-            email: user.email,
-            subscriptionStatus: 'free',
-            createdAt: serverTimestamp(),
+        // 1. Create user in Supabase Authentication
+        const { data, error: signUpError } = await supabase.auth.signUp({
+            email: email,
+            password: password,
         });
 
+        if (signUpError) {
+          if (signUpError.message.includes("User already registered")) {
+            setError('Email ini sudah terdaftar. Silakan masuk.');
+          } else {
+            throw signUpError;
+          }
+          setLoading(false);
+          return; // Stop execution
+        }
+        
+        if (data.user) {
+          // 2. Create a corresponding user document in our public 'users' table
+          // Note: Supabase handles the user entry in the 'auth.users' table automatically.
+          // We add a public profile for app-specific data.
+          // RLS policies should be set up in Supabase to allow this insert.
+          const { error: insertError } = await supabase
+            .from('users')
+            .insert({ id: data.user.id, subscription_status: 'free' });
+
+            if (insertError) {
+              // This is a tricky state. User is created in auth but profile creation failed.
+              // AppContext has logic to handle this on next login.
+              // For now, we'll log it and show a generic error.
+              console.error("Error creating user profile:", insertError);
+              throw new Error("Gagal membuat profil pengguna setelah pendaftaran.");
+            }
+        } else {
+          // This case could happen if email confirmation is required.
+          // For this app's flow, we'll assume it's not and a user object is always returned on success.
+          // If confirmation is on, you'd show a "Please check your email" message.
+           setError('Pendaftaran berhasil, silakan verifikasi email Anda jika diperlukan.');
+           setLoading(false);
+           return;
+        }
+
+
         // 3. Navigate to account page, onAuthStateChanged will handle the rest
+        // A successful sign up also signs the user in.
+        alert('Pendaftaran berhasil! Anda akan dialihkan ke halaman akun.');
         navigate('/account');
 
     } catch (err: any) {
-        // Handle Firebase auth errors
-        if (err.code === 'auth/email-already-in-use') {
-            setError('Email ini sudah terdaftar. Silakan masuk.');
-        } else if (err.code === 'auth/invalid-email') {
-            setError('Format email tidak valid. Mohon periksa kembali.');
-        } else {
-            setError('Gagal membuat akun. Silakan coba lagi.');
-            console.error("Registration error:", err);
-        }
+        setError(err.message || 'Gagal membuat akun. Silakan coba lagi.');
+        console.error("Registration error:", err);
     } finally {
         setLoading(false);
     }

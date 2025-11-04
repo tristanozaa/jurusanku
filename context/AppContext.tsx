@@ -1,8 +1,7 @@
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
-import { onAuthStateChanged, signOut, User as FirebaseUser } from "firebase/auth";
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
-import { auth, db } from '../services/firebase';
+import { supabase } from '../services/supabase';
 import { InterestResult, Jurusan, User } from '../types';
+import { Session } from '@supabase/supabase-js';
 
 interface AppContextType {
   // Test results
@@ -26,44 +25,71 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({ children
   const [loadingAuth, setLoadingAuth] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser: FirebaseUser | null) => {
-      if (firebaseUser) {
-        // User is signed in, get their data from Firestore
-        const userDocRef = doc(db, "users", firebaseUser.uid);
-        const userDocSnap = await getDoc(userDocRef);
+    const fetchUser = async (session: Session | null) => {
+        if (session?.user) {
+            const { data: userProfile, error } = await supabase
+                .from('users')
+                .select('*')
+                .eq('id', session.user.id)
+                .single();
 
-        if (userDocSnap.exists()) {
-          const userData = userDocSnap.data()!;
-          setCurrentUser({
-            uid: firebaseUser.uid,
-            email: firebaseUser.email,
-            subscriptionStatus: (userData.subscriptionStatus as User['subscriptionStatus']) || 'free',
-          });
+            if (error && error.code !== 'PGRST116') { // PGRST116 = no rows found
+                console.error("Error fetching user profile:", error);
+                setCurrentUser(null);
+            } else if (userProfile) {
+                setCurrentUser({
+                    uid: userProfile.id,
+                    email: session.user.email || null,
+                    subscription_status: userProfile.subscription_status,
+                });
+            } else {
+                 // Profile doesn't exist, let's create it.
+                 // This can happen if a user signs up but the profile creation fails,
+                 // or for users who existed before the profile table was properly set up.
+                const { data: newUserProfile, error: insertError } = await supabase
+                    .from('users')
+                    .insert({ id: session.user.id, subscription_status: 'free' })
+                    .select()
+                    .single();
+
+                if (insertError) {
+                    console.error("Error creating user profile:", insertError);
+                    setCurrentUser(null);
+                } else if (newUserProfile) {
+                     setCurrentUser({
+                        uid: newUserProfile.id,
+                        email: session.user.email || null,
+                        subscription_status: newUserProfile.subscription_status,
+                    });
+                }
+            }
         } else {
-            // This case might happen if user is created in Auth but not in Firestore.
-            // We can create it here as a fallback.
-            const newUser: Omit<User, 'uid' | 'email'> = { subscriptionStatus: 'free' };
-            await setDoc(userDocRef, newUser);
-            setCurrentUser({
-                uid: firebaseUser.uid,
-                email: firebaseUser.email,
-                subscriptionStatus: 'free'
-            });
+            setCurrentUser(null);
         }
-      } else {
-        // User is signed out
-        setCurrentUser(null);
-      }
-      setLoadingAuth(false);
+        setLoadingAuth(false);
+    };
+
+    // Fetch user on initial load
+    supabase.auth.getSession().then(({ data: { session } }) => {
+        fetchUser(session);
     });
+    
+    // Listen for auth state changes
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      async (_event, session) => {
+        fetchUser(session);
+      }
+    );
 
     // Cleanup subscription on unmount
-    return () => unsubscribe();
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
   }, []);
 
   const logout = async () => {
     try {
-        await signOut(auth);
+        await supabase.auth.signOut();
     } catch (error) {
         console.error("Error signing out: ", error);
     }
@@ -71,10 +97,14 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({ children
 
   const upgradeAccount = async () => {
       if (currentUser) {
-        const userDocRef = doc(db, "users", currentUser.uid);
         try {
-            await updateDoc(userDocRef, { subscriptionStatus: 'premium' });
-            setCurrentUser(prev => prev ? { ...prev, subscriptionStatus: 'premium' } : null);
+            const { error } = await supabase
+                .from('users')
+                .update({ subscription_status: 'premium' })
+                .eq('id', currentUser.uid);
+
+            if (error) throw error;
+            setCurrentUser(prev => prev ? { ...prev, subscription_status: 'premium' } : null);
         } catch (error) {
             console.error("Error upgrading account: ", error);
         }

@@ -39,7 +39,7 @@ export interface ChatMessage {
 }
 
 export interface User {
-  uid: string; // Firebase User ID
+  uid: string; // Supabase User ID
   email: string | null;
-  subscriptionStatus: 'free' | 'premium';
+  subscription_status: 'free' | 'premium';
 }

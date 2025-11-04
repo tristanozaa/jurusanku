@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from '../services/firebase';
+import { supabase } from '../services/supabase';
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -22,23 +21,23 @@ const LoginPage: React.FC = () => {
     }
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      // onAuthStateChanged in AppContext will handle setting the user state
+      const { error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+      });
+
+      if (error) throw error;
+      
+      // onAuthStateChanged in AppContext will handle setting the user state,
+      // but we can navigate early for better UX.
       navigate('/account');
     } catch (err: any) {
-      // Handle Firebase auth errors
-      switch (err.code) {
-        case 'auth/user-not-found':
-        case 'auth/wrong-password':
-        case 'auth/invalid-credential':
-          setError('Email atau password yang Anda masukkan salah.');
-          break;
-        case 'auth/invalid-email':
-          setError('Format email tidak valid.');
-          break;
-        default:
-          setError('Gagal masuk. Silakan coba beberapa saat lagi.');
-          break;
+      // Supabase returns a generic error for security reasons
+      if (err.message.includes('Invalid login credentials')) {
+        setError('Email atau password yang Anda masukkan salah.');
+      } else {
+        setError('Gagal masuk. Silakan coba beberapa saat lagi.');
+        console.error("Login error:", err);
       }
     } finally {
         setLoading(false);
