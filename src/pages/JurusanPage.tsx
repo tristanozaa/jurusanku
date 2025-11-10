@@ -48,7 +48,7 @@ const PremiumLock: React.FC = () => (
 
 const JurusanModal: React.FC<{ jurusan: Jurusan; onClose: () => void }> = ({ jurusan, onClose }) => {
     const { currentUser } = useAppContext();
-    const isPremium = currentUser?.subscription_status === 'premium';
+    const isPremium = currentUser?.subscriptionStatus === 'premium';
     const [selectedMatkul, setSelectedMatkul] = useState<MataKuliah | null>(null);
     const [popupPosition, setPopupPosition] = useState<{ top: number, left: number } | null>(null);
     const popoverRef = useRef<HTMLDivElement>(null);

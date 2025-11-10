@@ -22,7 +22,7 @@ const AccountPage: React.FC = () => {
         return <p>Loading...</p>;
     }
 
-    const isPremium = currentUser.subscription_status === 'premium';
+    const isPremium = currentUser.subscriptionStatus === 'premium';
 
     return (
         <div className="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-xl animate-boing-in">

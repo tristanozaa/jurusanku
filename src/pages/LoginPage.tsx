@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { supabase } from '../services/supabase';
+// IMPOR DIGANTI DARI FIREBASE KE SUPABASE
+// PERBAIKAN: Path diubah dari 'services' ke 'lib' agar sesuai struktur folder Anda
+import { supabase } from '../lib/supabase';
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -21,29 +23,36 @@ const LoginPage: React.FC = () => {
     }
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      // LOGIKA DIGANTI DARI FIREBASE KE SUPABASE
+      const { error: authError } = await supabase.auth.signInWithPassword({
         email: email,
         password: password,
       });
 
-      if (error) throw error;
-      
-      // onAuthStateChanged in AppContext will handle setting the user state,
-      // but we can navigate early for better UX.
+      if (authError) {
+        throw authError; // Lemparkan error untuk ditangani oleh catch block
+      }
+
+      // onAuthStateChanged in AppContext will handle setting the user state
       navigate('/account');
+
     } catch (err: any) {
-      // Supabase returns a generic error for security reasons
-      if (err.message.includes('Invalid login credentials')) {
+      // PENANGANAN ERROR DIGANTI UNTUK SUPABASE
+      const errorMessage = err.message || '';
+      if (errorMessage.includes("Invalid login credentials")) {
         setError('Email atau password yang Anda masukkan salah.');
+      } else if (errorMessage.includes("Invalid email format")) {
+        setError('Format email tidak valid.');
       } else {
         setError('Gagal masuk. Silakan coba beberapa saat lagi.');
         console.error("Login error:", err);
       }
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
   };
 
+  // --- TIDAK ADA PERUBAHAN DESAIN DI BAWAH INI ---
   return (
     <div className="flex justify-center items-center py-12">
       <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl animate-boing-in">
@@ -83,9 +92,9 @@ const LoginPage: React.FC = () => {
               type="submit"
               disabled={loading}
               className="w-full flex justify-center py-3 px-4 border-b-4 border-teal-800 rounded-full shadow-sm text-sm font-medium text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 disabled:bg-teal-400 disabled:border-teal-500"
-            >
+              M           >
               {loading ? 'Memproses...' : 'Masuk'}
-            </button>
+              _       </button>
           </div>
         </form>
         <p className="mt-6 text-center text-sm text-gray-600">

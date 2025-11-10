@@ -1,4 +1,3 @@
-
 export interface MataKuliah {
   nama: string;
   deskripsi: string;
@@ -10,7 +9,7 @@ export interface Jurusan {
   nama: string;
   fakultas: string;
   deskripsi: string;
-  kurikulum: Record<string, MataKuliah[]>; // Changed to array of MataKuliah objects
+  kurikulum: Record<string, MataKuliah[]>;
   gajiRataRata: number;
   jumlahLapanganPekerjaan: number;
   proyeksiPertumbuhan: number;
@@ -39,7 +38,7 @@ export interface ChatMessage {
 }
 
 export interface User {
-  uid: string; // Supabase User ID
-  email: string | null;
+  id: string; // Supabase User ID
+  email: string | undefined;
   subscription_status: 'free' | 'premium';
 }

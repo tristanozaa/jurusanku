@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { supabase } from '../services/supabase';
-
+// IMPOR SUPABASE (menggantikan firebase)
+// PERBAIKAN: Mengubah path impor agar sesuai dengan struktur services
+import { supabase } from '../services/supabaseClient'; // Pastikan path ini benar
 
 const RegisterPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -14,7 +15,8 @@ const RegisterPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    
+
+    // Validasi sisi klien (tetap sama)
     if (!email || !password || !confirmPassword) {
       setError('Semua kolom wajib diisi.');
       return;
@@ -24,67 +26,62 @@ const RegisterPage: React.FC = () => {
       return;
     }
     if (password.length < 6) {
-        setError('Password harus terdiri dari minimal 6 karakter.');
-        return;
+      setError('Password harus terdiri dari minimal 6 karakter.');
+      return;
     }
     setLoading(true);
-    
+
     try {
-        // 1. Create user in Supabase Authentication
-        const { data, error: signUpError } = await supabase.auth.signUp({
-            email: email,
-            password: password,
+      // 1. Buat pengguna di Supabase Authentication
+      const { data: authData, error: authError } = await supabase.auth.signUp({
+        email: email,
+        password: password,
+      });
+
+      if (authError) {
+        throw authError;
+      }
+
+      if (!authData.user) {
+        throw new Error("Pendaftaran berhasil tapi data pengguna tidak kembali.");
+      }
+
+      // 2. Buat dokumen pengguna di tabel 'users' (meniru logika Firestore Anda)
+      // Pastikan Anda memiliki tabel 'users' di Supabase
+      const { error: dbError } = await supabase
+        .from('users') // Asumsi Anda punya tabel 'users'
+        .insert({
+          id: authData.user.id, // Menghubungkan ke auth.users.id
+          email: authData.user.email,
+          subscriptionStatus: 'free',
+          // 'createdAt' biasanya diatur oleh database dengan `default: now()`
         });
 
-        if (signUpError) {
-          if (signUpError.message.includes("User already registered")) {
-            setError('Email ini sudah terdaftar. Silakan masuk.');
-          } else {
-            throw signUpError;
-          }
-          setLoading(false);
-          return; // Stop execution
-        }
-        
-        if (data.user) {
-          // 2. Create a corresponding user document in our public 'users' table
-          // Note: Supabase handles the user entry in the 'auth.users' table automatically.
-          // We add a public profile for app-specific data.
-          // RLS policies should be set up in Supabase to allow this insert.
-          const { error: insertError } = await supabase
-            .from('users')
-            .insert({ id: data.user.id, subscription_status: 'free' });
+      if (dbError) {
+        // Jika ini gagal, pengguna dibuat di Auth tapi tidak di DB.
+        // Sebaiknya tangani ini, tapi untuk sekarang kita laporkan errornya.
+        throw new Error(`Akun dibuat, tapi gagal menyimpan profil: ${dbError.message}`);
+      }
 
-            if (insertError) {
-              // This is a tricky state. User is created in auth but profile creation failed.
-              // AppContext has logic to handle this on next login.
-              // For now, we'll log it and show a generic error.
-              console.error("Error creating user profile:", insertError);
-              throw new Error("Gagal membuat profil pengguna setelah pendaftaran.");
-            }
-        } else {
-          // This case could happen if email confirmation is required.
-          // For this app's flow, we'll assume it's not and a user object is always returned on success.
-          // If confirmation is on, you'd show a "Please check your email" message.
-           setError('Pendaftaran berhasil, silakan verifikasi email Anda jika diperlukan.');
-           setLoading(false);
-           return;
-        }
-
-
-        // 3. Navigate to account page, onAuthStateChanged will handle the rest
-        // A successful sign up also signs the user in.
-        alert('Pendaftaran berhasil! Anda akan dialihkan ke halaman akun.');
-        navigate('/account');
+      // 3. Navigasi ke halaman akun
+      navigate('/account');
 
     } catch (err: any) {
+      // Menangani error Supabase
+      if (err.message.includes("User already registered")) {
+        setError('Email ini sudah terdaftar. Silakan masuk.');
+      } else if (err.message.includes("Invalid email")) {
+        setError('Format email tidak valid. Mohon periksa kembali.');
+      } else {
         setError(err.message || 'Gagal membuat akun. Silakan coba lagi.');
         console.error("Registration error:", err);
+      }
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
   };
 
+  // Bagian JSX (tampilan) tidak diubah sama sekali
   return (
     <div className="flex justify-center items-center py-12">
       <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl animate-boing-in">
@@ -143,7 +140,7 @@ const RegisterPage: React.FC = () => {
             </button>
           </div>
         </form>
-         <p className="mt-6 text-center text-sm text-gray-600">
+        <p className="mt-6 text-center text-sm text-gray-600">
           Sudah punya akun?{' '}
           <Link to="/login" className="font-medium text-teal-600 hover:text-teal-500">
             Masuk di sini

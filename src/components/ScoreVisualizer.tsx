@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface ScoreVisualizerProps {
@@ -32,9 +31,6 @@ const ScoreVisualizer: React.FC<ScoreVisualizerProps> = ({ scores }) => {
       C: 'bg-gray-500'
   };
   
-  // Fix: Changed type of `scoreOrder` to be based on `colors` keys for type safety.
-  // The original type `(keyof typeof scores)[]` resolved to `(string | number)[]`, causing a type error
-  // when passing the `key` to the `label` prop which expects a `string`.
   const scoreOrder: (keyof typeof colors)[] = ['R', 'I', 'A', 'S', 'E', 'C'];
   
   // Normalize the bar width based on the current highest score to make the visualization dynamic
