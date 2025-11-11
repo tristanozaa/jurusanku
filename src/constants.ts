@@ -2,12 +2,12 @@ import { Jurusan, InterestQuestion, InterestResult, MataKuliah } from './types';
 
 // Helper function to create a URL-friendly slug
 const createId = (name: string) => {
-    return name
-        .toLowerCase()
-        .replace(/ & /g, ' dan ')
-        .replace(/[().,]/g, '')
-        .replace(/ /g, '-')
-        .replace(/[^a-z0-9-]/g, '');
+  return name
+    .toLowerCase()
+    .replace(/ & /g, ' dan ')
+    .replace(/[().,]/g, '')
+    .replace(/ /g, '-')
+    .replace(/[^a-z0-9-]/g, '');
 }
 
 // Helper function to convert ALL CAPS to Title Case
@@ -239,72 +239,72 @@ const allKurikulum: Record<string, Record<string, MataKuliah[]>> = {
   },
   'pendidikan-dokter': {
     "Semester 1": [
-        { nama: "Biologi Sel dan Molekuler", deskripsi: "Dasar-dasar biologi pada tingkat seluler dan molekuler sebagai fondasi ilmu kedokteran." },
-        { nama: "Kimia Kedokteran", deskripsi: "Prinsip kimia organik dan anorganik yang relevan dengan proses biologis tubuh manusia." },
-        { nama: "Fisika Kedokteran", deskripsi: "Aplikasi prinsip-prinsip fisika dalam instrumen medis dan fungsi tubuh." },
-        { nama: "Anatomi Dasar", deskripsi: "Pengenalan struktur kasar tubuh manusia dan terminologi anatomi." },
-        { nama: "Pendidikan Agama", deskripsi: "Mata kuliah wajib yang membahas nilai-nilai spiritual dan etika." },
-        { nama: "Pancasila", deskripsi: "Mempelajari Pancasila sebagai dasar negara dan ideologi bangsa." },
-        { nama: "Bahasa Indonesia", deskripsi: "Keterampilan komunikasi dan penulisan ilmiah dalam Bahasa Indonesia." },
-        { nama: "Bahasa Inggris Kedokteran", deskripsi: "Fokus pada literatur medis dan komunikasi dalam Bahasa Inggris." }
+      { nama: "Biologi Sel dan Molekuler", deskripsi: "Dasar-dasar biologi pada tingkat seluler dan molekuler sebagai fondasi ilmu kedokteran." },
+      { nama: "Kimia Kedokteran", deskripsi: "Prinsip kimia organik dan anorganik yang relevan dengan proses biologis tubuh manusia." },
+      { nama: "Fisika Kedokteran", deskripsi: "Aplikasi prinsip-prinsip fisika dalam instrumen medis dan fungsi tubuh." },
+      { nama: "Anatomi Dasar", deskripsi: "Pengenalan struktur kasar tubuh manusia dan terminologi anatomi." },
+      { nama: "Pendidikan Agama", deskripsi: "Mata kuliah wajib yang membahas nilai-nilai spiritual dan etika." },
+      { nama: "Pancasila", deskripsi: "Mempelajari Pancasila sebagai dasar negara dan ideologi bangsa." },
+      { nama: "Bahasa Indonesia", deskripsi: "Keterampilan komunikasi dan penulisan ilmiah dalam Bahasa Indonesia." },
+      { nama: "Bahasa Inggris Kedokteran", deskripsi: "Fokus pada literatur medis dan komunikasi dalam Bahasa Inggris." }
     ],
     "Semester 2": [
-        { nama: "Histologi", deskripsi: "Studi tentang struktur mikroskopis jaringan tubuh manusia." },
-        { nama: "Biokimia", deskripsi: "Mempelajari reaksi kimia yang terjadi dalam organisme hidup, metabolisme, dan enzim." },
-        { nama: "Fisiologi Dasar", deskripsi: "Mempelajari fungsi normal sistem organ tubuh manusia." },
-        { nama: "Genetika Kedokteran", deskripsi: "Prinsip pewarisan sifat dan peran gen dalam penyakit." },
-        { nama: "Pendidikan Kewarganegaraan", deskripsi: "Membahas hak dan kewajiban warga negara." },
-        { nama: "Ilmu Kesehatan Masyarakat", deskripsi: "Pengantar konsep kesehatan pada tingkat populasi." },
-        { nama: "Keterampilan Klinis Dasar I", deskripsi: "Latihan anamnesis dan pemeriksaan fisik dasar pada manekin." },
-        { nama: "Etika Kedokteran dan Hukum", deskripsi: "Dasar-dasar etika profesi dan aspek hukum dalam praktik kedokteran." }
+      { nama: "Histologi", deskripsi: "Studi tentang struktur mikroskopis jaringan tubuh manusia." },
+      { nama: "Biokimia", deskripsi: "Mempelajari reaksi kimia yang terjadi dalam organisme hidup, metabolisme, dan enzim." },
+      { nama: "Fisiologi Dasar", deskripsi: "Mempelajari fungsi normal sistem organ tubuh manusia." },
+      { nama: "Genetika Kedokteran", deskripsi: "Prinsip pewarisan sifat dan peran gen dalam penyakit." },
+      { nama: "Pendidikan Kewarganegaraan", deskripsi: "Membahas hak dan kewajiban warga negara." },
+      { nama: "Ilmu Kesehatan Masyarakat", deskripsi: "Pengantar konsep kesehatan pada tingkat populasi." },
+      { nama: "Keterampilan Klinis Dasar I", deskripsi: "Latihan anamnesis dan pemeriksaan fisik dasar pada manekin." },
+      { nama: "Etika Kedokteran dan Hukum", deskripsi: "Dasar-dasar etika profesi dan aspek hukum dalam praktik kedokteran." }
     ],
     "Semester 3": [
-        { nama: "Anatomi Lanjutan", deskripsi: "Studi anatomi mendalam per sistem organ dengan diseksi kadaver." },
-        { nama: "Fisiologi Lanjutan", deskripsi: "Studi fisiologi mendalam per sistem organ." },
-        { nama: "Patologi Anatomi Dasar", deskripsi: "Mempelajari perubahan struktural pada sel dan jaringan akibat penyakit." },
-        { nama: "Mikrobiologi Kedokteran", deskripsi: "Studi tentang bakteri, virus, jamur, dan parasit penyebab penyakit." },
-        { nama: "Farmakologi Dasar", deskripsi: "Prinsip dasar cara kerja obat di dalam tubuh (farmakokinetik dan farmakodinamik)." },
-        { nama: "Parasitologi", deskripsi: "Mempelajari parasit manusia dan penyakit yang ditimbulkannya." },
-        { nama: "Sistem Kardiovaskular", deskripsi: "Blok terintegrasi yang membahas anatomi, fisiologi, dan penyakit jantung dan pembuluh darah." },
-        { nama: "Keterampilan Klinis Dasar II", deskripsi: "Latihan keterampilan seperti injeksi, pemasangan infus, dan penjahitan luka." }
+      { nama: "Anatomi Lanjutan", deskripsi: "Studi anatomi mendalam per sistem organ dengan diseksi kadaver." },
+      { nama: "Fisiologi Lanjutan", deskripsi: "Studi fisiologi mendalam per sistem organ." },
+      { nama: "Patologi Anatomi Dasar", deskripsi: "Mempelajari perubahan struktural pada sel dan jaringan akibat penyakit." },
+      { nama: "Mikrobiologi Kedokteran", deskripsi: "Studi tentang bakteri, virus, jamur, dan parasit penyebab penyakit." },
+      { nama: "Farmakologi Dasar", deskripsi: "Prinsip dasar cara kerja obat di dalam tubuh (farmakokinetik dan farmakodinamik)." },
+      { nama: "Parasitologi", deskripsi: "Mempelajari parasit manusia dan penyakit yang ditimbulkannya." },
+      { nama: "Sistem Kardiovaskular", deskripsi: "Blok terintegrasi yang membahas anatomi, fisiologi, dan penyakit jantung dan pembuluh darah." },
+      { nama: "Keterampilan Klinis Dasar II", deskripsi: "Latihan keterampilan seperti injeksi, pemasangan infus, dan penjahitan luka." }
     ],
     "Semester 4": [
-        { nama: "Patologi Klinik Dasar", deskripsi: "Interpretasi hasil pemeriksaan laboratorium (darah, urin, dll) untuk diagnosis." },
-        { nama: "Imunologi", deskripsi: "Mempelajari sistem kekebalan tubuh dan gangguannya." },
-        { nama: "Radiologi Dasar", deskripsi: "Pengenalan dan interpretasi dasar foto Rontgen, CT scan, dan USG." },
-        { nama: "Gizi Kedokteran", deskripsi: "Peran nutrisi dalam kesehatan dan penyakit." },
-        { nama: "Sistem Respirasi", deskripsi: "Blok terintegrasi mengenai sistem pernapasan." },
-        { nama: "Sistem Gastrointestinal", deskripsi: "Blok terintegrasi mengenai sistem pencernaan." },
-        { nama: "Sistem Endokrin & Metabolisme", deskripsi: "Blok terintegrasi mengenai sistem hormon dan metabolisme." },
-        { nama: "Metodologi Penelitian Kedokteran", deskripsi: "Cara merancang dan melakukan penelitian di bidang kesehatan." }
+      { nama: "Patologi Klinik Dasar", deskripsi: "Interpretasi hasil pemeriksaan laboratorium (darah, urin, dll) untuk diagnosis." },
+      { nama: "Imunologi", deskripsi: "Mempelajari sistem kekebalan tubuh dan gangguannya." },
+      { nama: "Radiologi Dasar", deskripsi: "Pengenalan dan interpretasi dasar foto Rontgen, CT scan, dan USG." },
+      { nama: "Gizi Kedokteran", deskripsi: "Peran nutrisi dalam kesehatan dan penyakit." },
+      { nama: "Sistem Respirasi", deskripsi: "Blok terintegrasi mengenai sistem pernapasan." },
+      { nama: "Sistem Gastrointestinal", deskripsi: "Blok terintegrasi mengenai sistem pencernaan." },
+      { nama: "Sistem Endokrin & Metabolisme", deskripsi: "Blok terintegrasi mengenai sistem hormon dan metabolisme." },
+      { nama: "Metodologi Penelitian Kedokteran", deskripsi: "Cara merancang dan melakukan penelitian di bidang kesehatan." }
     ],
     "Semester 5": [
-        { nama: "Sistem Urogenital", deskripsi: "Blok terintegrasi mengenai sistem kemih dan reproduksi." },
-        { nama: "Sistem Muskuloskeletal", deskripsi: "Blok terintegrasi mengenai sistem otot dan rangka." },
-        { nama: "Sistem Saraf dan Perilaku", deskripsi: "Blok terintegrasi mengenai otak, saraf, dan dasar-dasar psikiatri." },
-        { nama: "Sistem Hematologi & Onkologi", deskripsi: "Blok terintegrasi mengenai darah dan kanker." },
-        { nama: "Kesehatan Kulit dan Jaringan Lunak", deskripsi: "Blok mengenai penyakit kulit dan kelamin." },
-        { nama: "Tumbuh Kembang", deskripsi: "Mempelajari proses tumbuh kembang normal dari bayi hingga remaja." },
-        { nama: "Kedokteran Tropis", deskripsi: "Fokus pada penyakit infeksi yang umum di daerah tropis." },
-        { nama: "Keterampilan Klinis Lanjutan", deskripsi: "Latihan keterampilan yang lebih kompleks seperti resusitasi jantung paru." }
+      { nama: "Sistem Urogenital", deskripsi: "Blok terintegrasi mengenai sistem kemih dan reproduksi." },
+      { nama: "Sistem Muskuloskeletal", deskripsi: "Blok terintegrasi mengenai sistem otot dan rangka." },
+      { nama: "Sistem Saraf dan Perilaku", deskripsi: "Blok terintegrasi mengenai otak, saraf, dan dasar-dasar psikiatri." },
+      { nama: "Sistem Hematologi & Onkologi", deskripsi: "Blok terintegrasi mengenai darah dan kanker." },
+      { nama: "Kesehatan Kulit dan Jaringan Lunak", deskripsi: "Blok mengenai penyakit kulit dan kelamin." },
+      { nama: "Tumbuh Kembang", deskripsi: "Mempelajari proses tumbuh kembang normal dari bayi hingga remaja." },
+      { nama: "Kedokteran Tropis", deskripsi: "Fokus pada penyakit infeksi yang umum di daerah tropis." },
+      { nama: "Keterampilan Klinis Lanjutan", deskripsi: "Latihan keterampilan yang lebih kompleks seperti resusitasi jantung paru." }
     ],
     "Semester 6": [
-        { nama: "Kesehatan Mata", deskripsi: "Blok terintegrasi mengenai mata dan gangguannya." },
-        { nama: "Kesehatan THT", deskripsi: "Blok terintegrasi mengenai Telinga, Hidung, Tenggorok." },
-        { nama: "Kedokteran Forensik", deskripsi: "Aplikasi ilmu kedokteran untuk kepentingan hukum." },
-        { nama: "Kedokteran Komunitas", deskripsi: "Penerapan ilmu kesehatan masyarakat di lapangan." },
-        { nama: "Geriatri", deskripsi: "Ilmu kesehatan yang berfokus pada populasi lanjut usia." },
-        { nama: "Kedokteran Okupasi", deskripsi: "Kesehatan yang berkaitan dengan pekerjaan." },
-        { nama: "Kegawatdaruratan Medis", deskripsi: "Penanganan kasus-kasus gawat darurat." },
-        { nama: "Persiapan Kepaniteraan Klinik", deskripsi: "Pembekalan komprehensif sebelum memasuki tahap profesi di rumah sakit." }
+      { nama: "Kesehatan Mata", deskripsi: "Blok terintegrasi mengenai mata dan gangguannya." },
+      { nama: "Kesehatan THT", deskripsi: "Blok terintegrasi mengenai Telinga, Hidung, Tenggorok." },
+      { nama: "Kedokteran Forensik", deskripsi: "Aplikasi ilmu kedokteran untuk kepentingan hukum." },
+      { nama: "Kedokteran Komunitas", deskripsi: "Penerapan ilmu kesehatan masyarakat di lapangan." },
+      { nama: "Geriatri", deskripsi: "Ilmu kesehatan yang berfokus pada populasi lanjut usia." },
+      { nama: "Kedokteran Okupasi", deskripsi: "Kesehatan yang berkaitan dengan pekerjaan." },
+      { nama: "Kegawatdaruratan Medis", deskripsi: "Penanganan kasus-kasus gawat darurat." },
+      { nama: "Persiapan Kepaniteraan Klinik", deskripsi: "Pembekalan komprehensif sebelum memasuki tahap profesi di rumah sakit." }
     ],
     "Semester 7": [
-        { nama: "Kepaniteraan Klinik (Co-ass) I", deskripsi: "Stase di berbagai departemen di rumah sakit (misal: Ilmu Penyakit Dalam, Bedah)." },
-        { nama: "Kuliah Kerja Nyata (KKN)", deskripsi: "Program pengabdian masyarakat di bidang kesehatan." }
+      { nama: "Kepaniteraan Klinik (Co-ass) I", deskripsi: "Stase di berbagai departemen di rumah sakit (misal: Ilmu Penyakit Dalam, Bedah)." },
+      { nama: "Kuliah Kerja Nyata (KKN)", deskripsi: "Program pengabdian masyarakat di bidang kesehatan." }
     ],
     "Semester 8": [
-        { nama: "Kepaniteraan Klinik (Co-ass) II", deskripsi: "Lanjutan stase di departemen lain (misal: Anak, Obstetri & Ginekologi, Saraf)." },
-        { nama: "Skripsi", deskripsi: "Penelitian ilmiah sebagai syarat kelulusan Sarjana Kedokteran." }
+      { nama: "Kepaniteraan Klinik (Co-ass) II", deskripsi: "Lanjutan stase di departemen lain (misal: Anak, Obstetri & Ginekologi, Saraf)." },
+      { nama: "Skripsi", deskripsi: "Penelitian ilmiah sebagai syarat kelulusan Sarjana Kedokteran." }
     ]
   },
   'farmasi': {
@@ -447,24 +447,24 @@ const allKurikulum: Record<string, Record<string, MataKuliah[]>> = {
   },
   'statistika': {
     "Semester 1": [
-        { nama: "Kalkulus I", deskripsi: "Mempelajari konsep dasar turunan, integral, dan limit yang menjadi fondasi teori statistika." },
-        { nama: "Pengantar Metode Statistika", deskripsi: "Gambaran umum tentang statistika deskriptif, penyajian data, dan konsep dasar probabilitas." },
-        { nama: "Aljabar Linear Elementer", deskripsi: "Studi tentang vektor, matriks, dan ruang linear yang penting untuk model multivariat." },
-        { nama: "Dasar-Dasar Pemrograman", deskripsi: "Pengenalan logika pemrograman, variabel, dan kontrol alur, seringkali menggunakan R atau Python." },
-        { nama: "Pendidikan Agama", deskripsi: "Mata kuliah wajib yang membahas nilai-nilai spiritual dan etika." },
-        { nama: "Pancasila", deskripsi: "Mempelajari Pancasila sebagai dasar negara dan ideologi bangsa." },
-        { nama: "Bahasa Indonesia", deskripsi: "Mengembangkan keterampilan penulisan laporan dan karya ilmiah yang efektif." },
-        { nama: "Pengantar Filsafat Ilmu", deskripsi: "Memahami hakikat ilmu pengetahuan dan cara berpikir ilmiah." }
+      { nama: "Kalkulus I", deskripsi: "Mempelajari konsep dasar turunan, integral, dan limit yang menjadi fondasi teori statistika." },
+      { nama: "Pengantar Metode Statistika", deskripsi: "Gambaran umum tentang statistika deskriptif, penyajian data, dan konsep dasar probabilitas." },
+      { nama: "Aljabar Linear Elementer", deskripsi: "Studi tentang vektor, matriks, dan ruang linear yang penting untuk model multivariat." },
+      { nama: "Dasar-Dasar Pemrograman", deskripsi: "Pengenalan logika pemrograman, variabel, dan kontrol alur, seringkali menggunakan R atau Python." },
+      { nama: "Pendidikan Agama", deskripsi: "Mata kuliah wajib yang membahas nilai-nilai spiritual dan etika." },
+      { nama: "Pancasila", deskripsi: "Mempelajari Pancasila sebagai dasar negara dan ideologi bangsa." },
+      { nama: "Bahasa Indonesia", deskripsi: "Mengembangkan keterampilan penulisan laporan dan karya ilmiah yang efektif." },
+      { nama: "Pengantar Filsafat Ilmu", deskripsi: "Memahami hakikat ilmu pengetahuan dan cara berpikir ilmiah." }
     ],
     "Semester 2": [
-        { nama: "Kalkulus II", deskripsi: "Lanjutan dari Kalkulus I, membahas integral lipat, barisan, dan deret tak hingga." },
-        { nama: "Teori Peluang", deskripsi: "Fondasi matematis dari ketidakpastian, mempelajari peubah acak dan distribusi peluang." },
-        { nama: "Metode Statistika", deskripsi: "Fokus pada statistika inferensial, termasuk estimasi titik, selang kepercayaan, dan uji hipotesis." },
-        { nama: "Struktur Data", deskripsi: "Mempelajari cara mengorganisir dan menyimpan data secara efisien untuk analisis komputasi." },
-        { nama: "Pendidikan Kewarganegaraan", deskripsi: "Membahas hak dan kewajiban warga negara serta wawasan kebangsaan." },
-        { nama: "Bahasa Inggris", deskripsi: "Meningkatkan kemampuan membaca dan memahami literatur statistika internasional." },
-        { nama: "Metode Numerik", deskripsi: "Mempelajari algoritma untuk menyelesaikan masalah matematika secara numerik dengan komputer." },
-        { nama: "Praktikum Dasar Pemrograman Statistika", deskripsi: "Implementasi praktis konsep pemrograman untuk analisis data dasar." }
+      { nama: "Kalkulus II", deskripsi: "Lanjutan dari Kalkulus I, membahas integral lipat, barisan, dan deret tak hingga." },
+      { nama: "Teori Peluang", deskripsi: "Fondasi matematis dari ketidakpastian, mempelajari peubah acak dan distribusi peluang." },
+      { nama: "Metode Statistika", deskripsi: "Fokus pada statistika inferensial, termasuk estimasi titik, selang kepercayaan, dan uji hipotesis." },
+      { nama: "Struktur Data", deskripsi: "Mempelajari cara mengorganisir dan menyimpan data secara efisien untuk analisis komputasi." },
+      { nama: "Pendidikan Kewarganegaraan", deskripsi: "Membahas hak dan kewajiban warga negara serta wawasan kebangsaan." },
+      { nama: "Bahasa Inggris", deskripsi: "Meningkatkan kemampuan membaca dan memahami literatur statistika internasional." },
+      { nama: "Metode Numerik", deskripsi: "Mempelajari algoritma untuk menyelesaikan masalah matematika secara numerik dengan komputer." },
+      { nama: "Praktikum Dasar Pemrograman Statistika", deskripsi: "Implementasi praktis konsep pemrograman untuk analisis data dasar." }
     ],
     "Semester 3": [
       { nama: "Analisis Regresi", deskripsi: "Mempelajari teknik untuk memodelkan hubungan antara satu variabel dependen dengan satu atau lebih variabel independen." },
@@ -507,11 +507,11 @@ const allKurikulum: Record<string, Record<string, MataKuliah[]>> = {
       { nama: "Kerja Praktik/Magang", deskripsi: "Magang di lembaga survei, perusahaan riset, atau divisi analisis data." }
     ],
     "Semester 7": [
-        { nama: "Kuliah Kerja Nyata (KKN)", deskripsi: "Program pengabdian kepada masyarakat, seringkali terkait dengan survei atau analisis data desa." },
-        { nama: "Seminar Proposal Skripsi", deskripsi: "Presentasi rencana penelitian ilmiah untuk tugas akhir." }
+      { nama: "Kuliah Kerja Nyata (KKN)", deskripsi: "Program pengabdian kepada masyarakat, seringkali terkait dengan survei atau analisis data desa." },
+      { nama: "Seminar Proposal Skripsi", deskripsi: "Presentasi rencana penelitian ilmiah untuk tugas akhir." }
     ],
     "Semester 8": [
-        { nama: "Skripsi", deskripsi: "Karya ilmiah hasil penelitian atau analisis data mandiri sebagai syarat kelulusan." }
+      { nama: "Skripsi", deskripsi: "Karya ilmiah hasil penelitian atau analisis data mandiri sebagai syarat kelulusan." }
     ]
   },
   'biologi': {
@@ -584,143 +584,143 @@ const allKurikulum: Record<string, Record<string, MataKuliah[]>> = {
     ]
   },
   'teknik-mesin': {
-      "Semester 1": [
-        { nama: "Kalkulus I", deskripsi: "Mempelajari konsep dasar turunan, integral, dan limit." },
-        { nama: "Fisika Dasar I", deskripsi: "Memahami prinsip-prinsip mekanika, panas, dan bunyi." },
-        { nama: "Kimia Dasar", deskripsi: "Mempelajari struktur atom, ikatan kimia, dan stoikiometri." },
-        { nama: "Gambar Teknik", deskripsi: "Mempelajari cara membuat dan membaca gambar teknis mesin." },
-        { nama: "Pengantar Teknik Mesin", deskripsi: "Gambaran umum tentang ruang lingkup dan profesi teknik mesin." },
-        { nama: "Pendidikan Agama", deskripsi: "Mata kuliah wajib yang membahas nilai-nilai spiritual dan etika." },
-        { nama: "Pancasila", deskripsi: "Mempelajari Pancasila sebagai dasar negara." },
-        { nama: "Bahasa Indonesia", deskripsi: "Mengembangkan keterampilan berbahasa Indonesia." },
-      ],
-      "Semester 2": [
-        { nama: "Kalkulus II", deskripsi: "Lanjutan Kalkulus I, membahas integral lipat dan deret." },
-        { nama: "Fisika Dasar II", deskripsi: "Membahas konsep kelistrikan, kemagnetan, dan optik." },
-        { nama: "Statika Struktur", deskripsi: "Analisis gaya pada struktur statis." },
-        { nama: "Material Teknik", deskripsi: "Mempelajari sifat-sifat material logam dan non-logam." },
-        { nama: "Proses Manufaktur I", deskripsi: "Pengenalan proses permesinan seperti bubut dan frais." },
-        { nama: "Termodinamika I", deskripsi: "Mempelajari hukum-hukum termodinamika dan siklus energi." },
-        { nama: "Pendidikan Kewarganegaraan", deskripsi: "Membahas hak dan kewajiban warga negara." },
-        { nama: "Bahasa Inggris", deskripsi: "Meningkatkan kemampuan berbahasa Inggris teknis." },
-      ],
-      "Semester 3": [
-        { nama: "Mekanika Kekuatan Material", deskripsi: "Mempelajari perilaku material solid yang mengalami tegangan dan regangan." },
-        { nama: "Dinamika Teknik", deskripsi: "Mempelajari gerak benda dan gaya yang menyebabkannya." },
-        { nama: "Mekanika Fluida I", deskripsi: "Mempelajari sifat dan perilaku fluida." },
-        { nama: "Elemen Mesin I", deskripsi: "Perancangan komponen dasar mesin seperti poros dan pasak." },
-        { nama: "Metrologi Industri", deskripsi: "Ilmu tentang pengukuran dan kalibrasi alat ukur." },
-        { nama: "Matematika Teknik", deskripsi: "Penerapan matematika lanjut untuk masalah rekayasa." },
-        { nama: "Praktikum Proses Manufaktur", deskripsi: "Latihan praktis menggunakan mesin-mesin produksi." },
-        { nama: "Menggambar Mesin", deskripsi: "Penggunaan software CAD untuk menggambar komponen mesin." },
-      ],
-      "Semester 4": [
-        { nama: "Perpindahan Panas I", deskripsi: "Studi tentang mekanisme perpindahan panas: konduksi, konveksi, radiasi." },
-        { nama: "Elemen Mesin II", deskripsi: "Perancangan lanjutan elemen mesin seperti roda gigi dan bantalan." },
-        { nama: "Getaran Mekanis", deskripsi: "Analisis getaran pada sistem mekanis." },
-        { nama: "Teknik Tenaga Listrik", deskripsi: "Dasar-dasar sistem kelistrikan dan motor listrik." },
-        { nama: "Metode Numerik", deskripsi: "Penyelesaian masalah rekayasa menggunakan metode numerik." },
-        { nama: "Teknik Kendali", deskripsi: "Mempelajari sistem kontrol otomatis." },
-        { nama: "Praktikum Fenomena Dasar Mesin", deskripsi: "Eksperimen laboratorium untuk mekanika fluida dan termodinamika." },
-        { nama: "Proses Manufaktur II", deskripsi: "Mempelajari proses manufaktur non-konvensional." },
-      ],
-      "Semester 5": [
-        { nama: "Perancangan Teknik", deskripsi: "Proses merancang produk mesin dari konsep hingga detail." },
-        { nama: "Motor Bakar", deskripsi: "Mempelajari prinsip kerja dan performa mesin pembakaran dalam." },
-        { nama: "Mesin Fluida", deskripsi: "Studi tentang pompa, kompresor, dan turbin." },
-        { nama: "Ekonomi Teknik", deskripsi: "Analisis keekonomian proyek-proyek rekayasa." },
-        { nama: "Metodologi Penelitian", deskripsi: "Mempelajari cara merancang dan melaksanakan penelitian." },
-        { nama: "Mata Kuliah Pilihan: Konversi Energi", deskripsi: "Peminatan pada sistem pembangkit listrik." },
-        { nama: "Mata Kuliah Pilihan: Mekatronika", deskripsi: "Integrasi mekanika, elektronika, dan komputer." },
-        { nama: "Proyek Perancangan", deskripsi: "Mengerjakan proyek perancangan mesin dalam tim." },
-      ],
-      "Semester 6": [
-        { nama: "Manajemen Industri", deskripsi: "Prinsip-prinsip manajemen dalam lingkungan industri." },
-        { nama: "Kewirausahaan", deskripsi: "Mempelajari konsep memulai bisnis berbasis teknologi." },
-        { nama: "Etika Profesi", deskripsi: "Membahas tanggung jawab etis insinyur." },
-        { nama: "Keselamatan dan Kesehatan Kerja", deskripsi: "Prinsip-prinsip K3 di industri." },
-        { nama: "Mata Kuliah Pilihan: Teknik Pendingin", deskripsi: "Peminatan pada sistem refrigerasi dan AC." },
-        { nama: "Mata Kuliah Pilihan: Otomasi Industri", deskripsi: "Peminatan pada sistem otomasi pabrik." },
-        { nama: "Mata Kuliah Pilihan: Material Komposit", deskripsi: "Peminatan pada material rekayasa modern." },
-        { nama: "Kerja Praktik/Magang", deskripsi: "Magang di industri manufaktur atau rekayasa." }
-      ],
-      "Semester 7": [
-        { nama: "Kuliah Kerja Nyata (KKN)", deskripsi: "Program pengabdian kepada masyarakat." },
-        { nama: "Seminar Proposal Tugas Akhir", deskripsi: "Presentasi rencana penelitian untuk tugas akhir." }
-      ],
-      "Semester 8": [
-        { nama: "Skripsi/Tugas Akhir", deskripsi: "Karya ilmiah hasil penelitian atau perancangan mandiri." }
-      ]
-    },
-    'kehutanan': {
-      "Semester 1": [
-        { nama: "Biologi Dasar", deskripsi: "Pengenalan konsep fundamental biologi." },
-        { nama: "Kimia Dasar", deskripsi: "Mempelajari struktur atom, ikatan kimia, dan stoikiometri." },
-        { nama: "Fisika Dasar", deskripsi: "Memahami prinsip-prinsip fisika dasar." },
-        { nama: "Matematika Dasar", deskripsi: "Mempelajari konsep dasar kalkulus dan aljabar." },
-        { nama: "Pengantar Ilmu Kehutanan", deskripsi: "Gambaran umum tentang ruang lingkup kehutanan." },
-        { nama: "Pendidikan Agama", deskripsi: "Mata kuliah wajib." },
-        { nama: "Pancasila", deskripsi: "Mempelajari Pancasila sebagai dasar negara." },
-        { nama: "Bahasa Indonesia", deskripsi: "Mengembangkan keterampilan berbahasa Indonesia." },
-      ],
-      "Semester 2": [
-        { nama: "Dendrologi", deskripsi: "Ilmu tentang pengenalan pohon." },
-        { nama: "Ekologi Hutan", deskripsi: "Mempelajari interaksi organisme hutan dengan lingkungannya." },
-        { nama: "Ilmu Tanah Hutan", deskripsi: "Mempelajari sifat dan karakteristik tanah hutan." },
-        { nama: "Statistika Kehutanan", deskripsi: "Penerapan statistika dalam bidang kehutanan." },
-        { nama: "Ilmu Ukur Kayu", deskripsi: "Teknik pengukuran volume dan kualitas kayu." },
-        { nama: "Botani Hutan", deskripsi: "Mempelajari tumbuhan hutan secara mendalam." },
-        { nama: "Pendidikan Kewarganegaraan", deskripsi: "Membahas hak dan kewajiban warga negara." },
-        { nama: "Bahasa Inggris", deskripsi: "Meningkatkan kemampuan berbahasa Inggris." },
-      ],
-      "Semester 3": [
-        { nama: "Silvikultur", deskripsi: "Ilmu dan seni menumbuhkan dan memelihara hutan." },
-        { nama: "Fisiologi Pohon", deskripsi: "Mempelajari proses-proses vital dalam kehidupan pohon." },
-        { nama: "Inventarisasi Hutan", deskripsi: "Teknik mengumpulkan data tentang sumber daya hutan." },
-        { nama: "Perlindungan Hutan", deskripsi: "Mempelajari cara melindungi hutan dari hama, penyakit, dan kebakaran." },
-        { nama: "Sosiologi Kehutanan", deskripsi: "Studi tentang masyarakat di dalam dan sekitar hutan." },
-        { nama: "Ekonomi Kehutanan", deskripsi: "Aspek ekonomi dalam pengelolaan hutan." },
-        { nama: "Penginderaan Jauh", deskripsi: "Penggunaan citra satelit untuk pemantauan hutan." },
-        { nama: "Praktikum Ekologi Hutan", deskripsi: "Kegiatan lapangan untuk studi ekologi." },
-      ],
-      "Semester 4": [
-        { nama: "Manajemen Hutan", deskripsi: "Prinsip-prinsip perencanaan dan pengelolaan hutan lestari." },
-        { nama: "Teknologi Hasil Hutan Kayu", deskripsi: "Mempelajari pengolahan dan pemanfaatan kayu." },
-        { nama: "Konservasi Sumber Daya Hutan", deskripsi: "Mempelajari perlindungan keanekaragaman hayati." },
-        { nama: "Hidrologi Hutan", deskripsi: "Studi tentang siklus air di ekosistem hutan." },
-        { nama: "Kebijakan dan Perundangan Kehutanan", deskripsi: "Mempelajari peraturan terkait kehutanan." },
-        { nama: "Sistem Informasi Geografis (SIG)", deskripsi: "Penerapan SIG untuk analisis spasial kehutanan." },
-        { nama: "Praktikum Silvikultur", deskripsi: "Latihan pembibitan dan penanaman pohon." },
-        { nama: "Penyuluhan Kehutanan", deskripsi: "Teknik berkomunikasi dengan masyarakat kehutanan." },
-      ],
-      "Semester 5": [
-        { nama: "Perencanaan Hutan", deskripsi: "Menyusun rencana pengelolaan hutan jangka panjang." },
-        { nama: "Teknologi Hasil Hutan Bukan Kayu", deskripsi: "Mempelajari pemanfaatan rotan, madu, getah, dll." },
-        { nama: "Manajemen Daerah Aliran Sungai", deskripsi: "Pengelolaan terpadu wilayah DAS." },
-        { nama: "Ekowisata", deskripsi: "Pengembangan pariwisata berbasis alam yang berkelanjutan." },
-        { nama: "Metodologi Penelitian", deskripsi: "Mempelajari cara merancang penelitian kehutanan." },
-        { nama: "Mata Kuliah Pilihan: Agroforestri", deskripsi: "Kombinasi kegiatan kehutanan dengan pertanian." },
-        { nama: "Mata Kuliah Pilihan: Manajemen Satwaliar", deskripsi: "Pengelolaan populasi satwa liar." },
-        { nama: "Proyek Kehutanan", deskripsi: "Mengerjakan proyek terapan di bidang kehutanan." },
-      ],
-      "Semester 6": [
-        { nama: "Evaluasi Proyek Kehutanan", deskripsi: "Menilai keberhasilan proyek-proyek kehutanan." },
-        { nama: "Kewirausahaan Kehutanan", deskripsi: "Mempelajari peluang bisnis di sektor kehutanan." },
-        { nama: "Manajemen Hutan Tanaman Industri", deskripsi: "Pengelolaan hutan untuk produksi kayu." },
-        { nama: "Perubahan Iklim dan Kehutanan", deskripsi: "Peran hutan dalam mitigasi dan adaptasi perubahan iklim." },
-        { nama: "Mata Kuliah Pilihan: Bioteknologi Hutan", deskripsi: "Penerapan bioteknologi untuk pemuliaan pohon." },
-        { nama: "Mata Kuliah Pilihan: Reklamasi Tambang", deskripsi: "Rehabilitasi lahan bekas tambang." },
-        { nama: "Etika Lingkungan dan Profesi", deskripsi: "Membahas tanggung jawab etis rimbawan." },
-        { nama: "Kerja Praktik/Magang", deskripsi: "Magang di perusahaan kehutanan atau instansi pemerintah." }
-      ],
-      "Semester 7": [
-        { nama: "Kuliah Kerja Nyata (KKN)", deskripsi: "Program pengabdian kepada masyarakat." },
-        { nama: "Seminar Proposal Skripsi", deskripsi: "Presentasi rencana penelitian untuk skripsi." }
-      ],
-      "Semester 8": [
-        { nama: "Skripsi", deskripsi: "Karya ilmiah hasil penelitian mandiri." }
-      ]
-    },
+    "Semester 1": [
+      { nama: "Kalkulus I", deskripsi: "Mempelajari konsep dasar turunan, integral, dan limit." },
+      { nama: "Fisika Dasar I", deskripsi: "Memahami prinsip-prinsip mekanika, panas, dan bunyi." },
+      { nama: "Kimia Dasar", deskripsi: "Mempelajari struktur atom, ikatan kimia, dan stoikiometri." },
+      { nama: "Gambar Teknik", deskripsi: "Mempelajari cara membuat dan membaca gambar teknis mesin." },
+      { nama: "Pengantar Teknik Mesin", deskripsi: "Gambaran umum tentang ruang lingkup dan profesi teknik mesin." },
+      { nama: "Pendidikan Agama", deskripsi: "Mata kuliah wajib yang membahas nilai-nilai spiritual dan etika." },
+      { nama: "Pancasila", deskripsi: "Mempelajari Pancasila sebagai dasar negara." },
+      { nama: "Bahasa Indonesia", deskripsi: "Mengembangkan keterampilan berbahasa Indonesia." },
+    ],
+    "Semester 2": [
+      { nama: "Kalkulus II", deskripsi: "Lanjutan Kalkulus I, membahas integral lipat dan deret." },
+      { nama: "Fisika Dasar II", deskripsi: "Membahas konsep kelistrikan, kemagnetan, dan optik." },
+      { nama: "Statika Struktur", deskripsi: "Analisis gaya pada struktur statis." },
+      { nama: "Material Teknik", deskripsi: "Mempelajari sifat-sifat material logam dan non-logam." },
+      { nama: "Proses Manufaktur I", deskripsi: "Pengenalan proses permesinan seperti bubut dan frais." },
+      { nama: "Termodinamika I", deskripsi: "Mempelajari hukum-hukum termodinamika dan siklus energi." },
+      { nama: "Pendidikan Kewarganegaraan", deskripsi: "Membahas hak dan kewajiban warga negara." },
+      { nama: "Bahasa Inggris", deskripsi: "Meningkatkan kemampuan berbahasa Inggris teknis." },
+    ],
+    "Semester 3": [
+      { nama: "Mekanika Kekuatan Material", deskripsi: "Mempelajari perilaku material solid yang mengalami tegangan dan regangan." },
+      { nama: "Dinamika Teknik", deskripsi: "Mempelajari gerak benda dan gaya yang menyebabkannya." },
+      { nama: "Mekanika Fluida I", deskripsi: "Mempelajari sifat dan perilaku fluida." },
+      { nama: "Elemen Mesin I", deskripsi: "Perancangan komponen dasar mesin seperti poros dan pasak." },
+      { nama: "Metrologi Industri", deskripsi: "Ilmu tentang pengukuran dan kalibrasi alat ukur." },
+      { nama: "Matematika Teknik", deskripsi: "Penerapan matematika lanjut untuk masalah rekayasa." },
+      { nama: "Praktikum Proses Manufaktur", deskripsi: "Latihan praktis menggunakan mesin-mesin produksi." },
+      { nama: "Menggambar Mesin", deskripsi: "Penggunaan software CAD untuk menggambar komponen mesin." },
+    ],
+    "Semester 4": [
+      { nama: "Perpindahan Panas I", deskripsi: "Studi tentang mekanisme perpindahan panas: konduksi, konveksi, radiasi." },
+      { nama: "Elemen Mesin II", deskripsi: "Perancangan lanjutan elemen mesin seperti roda gigi dan bantalan." },
+      { nama: "Getaran Mekanis", deskripsi: "Analisis getaran pada sistem mekanis." },
+      { nama: "Teknik Tenaga Listrik", deskripsi: "Dasar-dasar sistem kelistrikan dan motor listrik." },
+      { nama: "Metode Numerik", deskripsi: "Penyelesaian masalah rekayasa menggunakan metode numerik." },
+      { nama: "Teknik Kendali", deskripsi: "Mempelajari sistem kontrol otomatis." },
+      { nama: "Praktikum Fenomena Dasar Mesin", deskripsi: "Eksperimen laboratorium untuk mekanika fluida dan termodinamika." },
+      { nama: "Proses Manufaktur II", deskripsi: "Mempelajari proses manufaktur non-konvensional." },
+    ],
+    "Semester 5": [
+      { nama: "Perancangan Teknik", deskripsi: "Proses merancang produk mesin dari konsep hingga detail." },
+      { nama: "Motor Bakar", deskripsi: "Mempelajari prinsip kerja dan performa mesin pembakaran dalam." },
+      { nama: "Mesin Fluida", deskripsi: "Studi tentang pompa, kompresor, dan turbin." },
+      { nama: "Ekonomi Teknik", deskripsi: "Analisis keekonomian proyek-proyek rekayasa." },
+      { nama: "Metodologi Penelitian", deskripsi: "Mempelajari cara merancang dan melaksanakan penelitian." },
+      { nama: "Mata Kuliah Pilihan: Konversi Energi", deskripsi: "Peminatan pada sistem pembangkit listrik." },
+      { nama: "Mata Kuliah Pilihan: Mekatronika", deskripsi: "Integrasi mekanika, elektronika, dan komputer." },
+      { nama: "Proyek Perancangan", deskripsi: "Mengerjakan proyek perancangan mesin dalam tim." },
+    ],
+    "Semester 6": [
+      { nama: "Manajemen Industri", deskripsi: "Prinsip-prinsip manajemen dalam lingkungan industri." },
+      { nama: "Kewirausahaan", deskripsi: "Mempelajari konsep memulai bisnis berbasis teknologi." },
+      { nama: "Etika Profesi", deskripsi: "Membahas tanggung jawab etis insinyur." },
+      { nama: "Keselamatan dan Kesehatan Kerja", deskripsi: "Prinsip-prinsip K3 di industri." },
+      { nama: "Mata Kuliah Pilihan: Teknik Pendingin", deskripsi: "Peminatan pada sistem refrigerasi dan AC." },
+      { nama: "Mata Kuliah Pilihan: Otomasi Industri", deskripsi: "Peminatan pada sistem otomasi pabrik." },
+      { nama: "Mata Kuliah Pilihan: Material Komposit", deskripsi: "Peminatan pada material rekayasa modern." },
+      { nama: "Kerja Praktik/Magang", deskripsi: "Magang di industri manufaktur atau rekayasa." }
+    ],
+    "Semester 7": [
+      { nama: "Kuliah Kerja Nyata (KKN)", deskripsi: "Program pengabdian kepada masyarakat." },
+      { nama: "Seminar Proposal Tugas Akhir", deskripsi: "Presentasi rencana penelitian untuk tugas akhir." }
+    ],
+    "Semester 8": [
+      { nama: "Skripsi/Tugas Akhir", deskripsi: "Karya ilmiah hasil penelitian atau perancangan mandiri." }
+    ]
+  },
+  'kehutanan': {
+    "Semester 1": [
+      { nama: "Biologi Dasar", deskripsi: "Pengenalan konsep fundamental biologi." },
+      { nama: "Kimia Dasar", deskripsi: "Mempelajari struktur atom, ikatan kimia, dan stoikiometri." },
+      { nama: "Fisika Dasar", deskripsi: "Memahami prinsip-prinsip fisika dasar." },
+      { nama: "Matematika Dasar", deskripsi: "Mempelajari konsep dasar kalkulus dan aljabar." },
+      { nama: "Pengantar Ilmu Kehutanan", deskripsi: "Gambaran umum tentang ruang lingkup kehutanan." },
+      { nama: "Pendidikan Agama", deskripsi: "Mata kuliah wajib." },
+      { nama: "Pancasila", deskripsi: "Mempelajari Pancasila sebagai dasar negara." },
+      { nama: "Bahasa Indonesia", deskripsi: "Mengembangkan keterampilan berbahasa Indonesia." },
+    ],
+    "Semester 2": [
+      { nama: "Dendrologi", deskripsi: "Ilmu tentang pengenalan pohon." },
+      { nama: "Ekologi Hutan", deskripsi: "Mempelajari interaksi organisme hutan dengan lingkungannya." },
+      { nama: "Ilmu Tanah Hutan", deskripsi: "Mempelajari sifat dan karakteristik tanah hutan." },
+      { nama: "Statistika Kehutanan", deskripsi: "Penerapan statistika dalam bidang kehutanan." },
+      { nama: "Ilmu Ukur Kayu", deskripsi: "Teknik pengukuran volume dan kualitas kayu." },
+      { nama: "Botani Hutan", deskripsi: "Mempelajari tumbuhan hutan secara mendalam." },
+      { nama: "Pendidikan Kewarganegaraan", deskripsi: "Membahas hak dan kewajiban warga negara." },
+      { nama: "Bahasa Inggris", deskripsi: "Meningkatkan kemampuan berbahasa Inggris." },
+    ],
+    "Semester 3": [
+      { nama: "Silvikultur", deskripsi: "Ilmu dan seni menumbuhkan dan memelihara hutan." },
+      { nama: "Fisiologi Pohon", deskripsi: "Mempelajari proses-proses vital dalam kehidupan pohon." },
+      { nama: "Inventarisasi Hutan", deskripsi: "Teknik mengumpulkan data tentang sumber daya hutan." },
+      { nama: "Perlindungan Hutan", deskripsi: "Mempelajari cara melindungi hutan dari hama, penyakit, dan kebakaran." },
+      { nama: "Sosiologi Kehutanan", deskripsi: "Studi tentang masyarakat di dalam dan sekitar hutan." },
+      { nama: "Ekonomi Kehutanan", deskripsi: "Aspek ekonomi dalam pengelolaan hutan." },
+      { nama: "Penginderaan Jauh", deskripsi: "Penggunaan citra satelit untuk pemantauan hutan." },
+      { nama: "Praktikum Ekologi Hutan", deskripsi: "Kegiatan lapangan untuk studi ekologi." },
+    ],
+    "Semester 4": [
+      { nama: "Manajemen Hutan", deskripsi: "Prinsip-prinsip perencanaan dan pengelolaan hutan lestari." },
+      { nama: "Teknologi Hasil Hutan Kayu", deskripsi: "Mempelajari pengolahan dan pemanfaatan kayu." },
+      { nama: "Konservasi Sumber Daya Hutan", deskripsi: "Mempelajari perlindungan keanekaragaman hayati." },
+      { nama: "Hidrologi Hutan", deskripsi: "Studi tentang siklus air di ekosistem hutan." },
+      { nama: "Kebijakan dan Perundangan Kehutanan", deskripsi: "Mempelajari peraturan terkait kehutanan." },
+      { nama: "Sistem Informasi Geografis (SIG)", deskripsi: "Penerapan SIG untuk analisis spasial kehutanan." },
+      { nama: "Praktikum Silvikultur", deskripsi: "Latihan pembibitan dan penanaman pohon." },
+      { nama: "Penyuluhan Kehutanan", deskripsi: "Teknik berkomunikasi dengan masyarakat kehutanan." },
+    ],
+    "Semester 5": [
+      { nama: "Perencanaan Hutan", deskripsi: "Menyusun rencana pengelolaan hutan jangka panjang." },
+      { nama: "Teknologi Hasil Hutan Bukan Kayu", deskripsi: "Mempelajari pemanfaatan rotan, madu, getah, dll." },
+      { nama: "Manajemen Daerah Aliran Sungai", deskripsi: "Pengelolaan terpadu wilayah DAS." },
+      { nama: "Ekowisata", deskripsi: "Pengembangan pariwisata berbasis alam yang berkelanjutan." },
+      { nama: "Metodologi Penelitian", deskripsi: "Mempelajari cara merancang penelitian kehutanan." },
+      { nama: "Mata Kuliah Pilihan: Agroforestri", deskripsi: "Kombinasi kegiatan kehutanan dengan pertanian." },
+      { nama: "Mata Kuliah Pilihan: Manajemen Satwaliar", deskripsi: "Pengelolaan populasi satwa liar." },
+      { nama: "Proyek Kehutanan", deskripsi: "Mengerjakan proyek terapan di bidang kehutanan." },
+    ],
+    "Semester 6": [
+      { nama: "Evaluasi Proyek Kehutanan", deskripsi: "Menilai keberhasilan proyek-proyek kehutanan." },
+      { nama: "Kewirausahaan Kehutanan", deskripsi: "Mempelajari peluang bisnis di sektor kehutanan." },
+      { nama: "Manajemen Hutan Tanaman Industri", deskripsi: "Pengelolaan hutan untuk produksi kayu." },
+      { nama: "Perubahan Iklim dan Kehutanan", deskripsi: "Peran hutan dalam mitigasi dan adaptasi perubahan iklim." },
+      { nama: "Mata Kuliah Pilihan: Bioteknologi Hutan", deskripsi: "Penerapan bioteknologi untuk pemuliaan pohon." },
+      { nama: "Mata Kuliah Pilihan: Reklamasi Tambang", deskripsi: "Rehabilitasi lahan bekas tambang." },
+      { nama: "Etika Lingkungan dan Profesi", deskripsi: "Membahas tanggung jawab etis rimbawan." },
+      { nama: "Kerja Praktik/Magang", deskripsi: "Magang di perusahaan kehutanan atau instansi pemerintah." }
+    ],
+    "Semester 7": [
+      { nama: "Kuliah Kerja Nyata (KKN)", deskripsi: "Program pengabdian kepada masyarakat." },
+      { nama: "Seminar Proposal Skripsi", deskripsi: "Presentasi rencana penelitian untuk skripsi." }
+    ],
+    "Semester 8": [
+      { nama: "Skripsi", deskripsi: "Karya ilmiah hasil penelitian mandiri." }
+    ]
+  },
   // === SOSHUM ===
   'akuntansi': {
     "Semester 1": [
@@ -1452,7 +1452,7 @@ export const JURUSAN_DATA: Jurusan[] = newJurusanData.map(j => {
   let jumlahLapanganPekerjaan = isSaintek ? 100000 : 150000;
   let proyeksiPertumbuhan = isSaintek ? 9 : 7;
   let waktuDapatKerjaBulan = isSaintek ? 6 : 7;
-  
+
   // Overwrite with specific data if available
   if (id === 'teknologi-informasi') {
     deskripsi = 'Jurusan yang mempelajari tentang penggunaan teknologi komputer untuk mengolah dan mendistribusikan data menggunakan perangkat lunak, perangkat keras, dan otak manusia (brainware).';
@@ -1462,7 +1462,7 @@ export const JURUSAN_DATA: Jurusan[] = newJurusanData.map(j => {
     deskripsi = 'Jurusan yang berfokus pada ilmu teori komputasi, pengembangan algoritma, dan rekayasa perangkat lunak. Lebih mendalam pada aspek \'mengapa\' di balik teknologi.';
     gajiRataRata = 8500000; jumlahLapanganPekerjaan = 140000; proyeksiPertumbuhan = 16; waktuDapatKerjaBulan = 4;
   }
-   if (id === 'ilmu-komunikasi') {
+  if (id === 'ilmu-komunikasi') {
     deskripsi = 'Jurusan yang mempelajari proses penyampaian pesan secara efektif agar dapat diterima dan dipahami oleh khalayak. Mencakup komunikasi massa, public relations, dan periklanan.';
     gajiRataRata = 6500000; jumlahLapanganPekerjaan = 250000; proyeksiPertumbuhan = 8; waktuDapatKerjaBulan = 6;
   }
@@ -1478,7 +1478,7 @@ export const JURUSAN_DATA: Jurusan[] = newJurusanData.map(j => {
     deskripsi = 'Mempelajari perancangan, pembangunan, dan pemeliharaan infrastruktur seperti gedung, jembatan, jalan, dan sistem pengairan. Menggabungkan aspek teknis, manajerial, dan lingkungan.';
     gajiRataRata = 7000000; jumlahLapanganPekerjaan = 95000; proyeksiPertumbuhan = 9; waktuDapatKerjaBulan = 6;
   }
-   if (id === 'psikologi') {
+  if (id === 'psikologi') {
     deskripsi = 'Ilmu yang mempelajari perilaku dan proses mental manusia. Mendalami pemikiran, perasaan, dan alasan di balik tindakan individu maupun kelompok.';
     gajiRataRata = 5500000; jumlahLapanganPekerjaan = 180000; proyeksiPertumbuhan = 11; waktuDapatKerjaBulan = 6;
   }
@@ -1527,75 +1527,74 @@ export const JURUSAN_DATA: Jurusan[] = newJurusanData.map(j => {
 });
 
 export const INTEREST_QUESTIONS: InterestQuestion[] = [
-    { id: 1, text: "Saya lebih suka merakit furnitur sendiri daripada membeli yang sudah jadi.", type: 'R', imageUrl: "https://images.unsplash.com/photo-1600122114322-1205584d4355?q=80&w=800&auto=format&fit=crop" },
-    { id: 2, text: "Saya tertarik untuk mempelajari cara kerja mesin mobil atau motor.", type: 'R', imageUrl: "https://images.unsplash.com/photo-1553775282-20af80779644?q=80&w=800&auto=format&fit=crop" },
-    { id: 3, text: "Bekerja di alam terbuka, seperti di taman atau hutan, terdengar menyenangkan bagi saya.", type: 'R', imageUrl: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=800&auto=format&fit=crop" },
-    { id: 4, text: "Saya merasa puas saat bisa memperbaiki alat elektronik yang rusak.", type: 'R', imageUrl: "https://images.unsplash.com/photo-1620932934088-fbdb2923b78b?q=80&w=800&auto=format&fit=crop" },
-    { id: 5, text: "Saya suka membaca artikel ilmiah atau menonton dokumenter tentang penemuan baru.", type: 'I', imageUrl: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=800&auto=format&fit=crop" },
-    { id: 6, text: "Saya senang memecahkan teka-teki logika atau soal matematika yang menantang.", type: 'I', imageUrl: "https://images.unsplash.com/photo-1550592704-6c76defa9985?q=80&w=800&auto=format&fit=crop" },
-    { id: 7, text: "Saya tertarik untuk melakukan penelitian di laboratorium.", type: 'I', imageUrl: "https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=800&auto=format&fit=crop" },
-    { id: 8, text: "Saya suka menganalisis data untuk menemukan pola atau tren tersembunyi.", type: 'I', imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" },
-    { id: 9, text: "Saya sering mencoret-coret atau menggambar saat bosan.", type: 'A', imageUrl: "https://images.unsplash.com/photo-1583149432413-4e32042189a8?q=80&w=800&auto=format&fit=crop" },
-    { id: 10, text: "Saya menikmati merancang ulang tata letak kamar saya agar terlihat lebih estetis.", type: 'A', imageUrl: "https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=800&auto=format&fit=crop" },
-    { id: 11, text: "Menulis cerita fiksi, puisi, atau lirik lagu adalah hobi saya.", type: 'A', imageUrl: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=800&auto=format&fit=crop" },
-    { id: 12, text: "Saya ingin belajar cara mengedit foto atau video secara profesional.", type: 'A', imageUrl: "https://images.unsplash.com/photo-1572949645841-094f3a9c4c94?q=80&w=800&auto=format&fit=crop" },
-    { id: 13, text: "Saya merasa senang ketika bisa membantu teman yang sedang kesulitan.", type: 'S', imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop" },
-    { id: 14, text: "Saya suka bekerja dalam tim daripada bekerja sendirian.", type: 'S', imageUrl: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop" },
-    { id: 15, text: "Menjadi sukarelawan untuk kegiatan sosial adalah sesuatu yang ingin saya lakukan.", type: 'S', imageUrl: "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=800&auto=format&fit=crop" },
-    { id: 16, text: "Saya pandai menjelaskan konsep yang sulit kepada orang lain.", type: 'S', imageUrl: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800&auto=format&fit=crop" },
-    { id: 17, text: "Saya suka memimpin sebuah proyek atau tim.", type: 'E', imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" },
-    { id: 18, text: "Saya merasa tertantang untuk meyakinkan orang lain agar setuju dengan ide saya.", type: 'E', imageUrl: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=800&auto=format&fit=crop" },
-    { id: 19, text: "Saya tertarik untuk memulai bisnis saya sendiri suatu hari nanti.", type: 'E', imageUrl: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=800&auto=format&fit=crop" },
-    { id: 20, text: "Berbicara di depan umum tidak membuat saya takut, justru bersemangat.", type: 'E', imageUrl: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=800&auto=format&fit=crop" },
-    { id: 21, text: "Saya suka membuat daftar tugas (to-do list) dan merencanakan jadwal saya.", type: 'C', imageUrl: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=800&auto=format&fit=crop" },
-    { id: 22, text: "Saya merasa nyaman bekerja dengan angka dan data.", type: 'C', imageUrl: "https://images.unsplash.com/photo-1611118495123-24d6934a34a3?q=80&w=800&auto=format&fit=crop" },
-    { id: 23, text: "Saya lebih suka mengikuti instruksi yang jelas daripada harus berimprovisasi.", type: 'C', imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop" },
-    { id: 24, text: "Mengorganisir file di komputer atau rak buku membuat saya merasa puas.", type: 'C', imageUrl: "https://images.unsplash.com/photo-1588218732386-20f49375e533?q=80&w=800&auto=format&fit=crop" },
-    { id: 25, text: "Saya teliti dan memperhatikan detail-detail kecil yang mungkin terlewat oleh orang lain.", type: 'C', imageUrl: "https://images.unsplash.com/photo-1516131206008-dd041a372dd4?q=80&w=800&auto=format&fit=crop" },
+  { id: 1, text: "Saya lebih suka merakit furnitur sendiri daripada membeli yang sudah jadi.", type: 'R', imageUrl: "https://images.unsplash.com/photo-1600122114322-1205584d4355?q=80&w=800&auto=format&fit=crop" },
+  { id: 2, text: "Saya tertarik untuk mempelajari cara kerja mesin mobil atau motor.", type: 'R', imageUrl: "https://images.unsplash.com/photo-1553775282-20af80779644?q=80&w=800&auto=format&fit=crop" },
+  { id: 3, text: "Bekerja di alam terbuka, seperti di taman atau hutan, terdengar menyenangkan bagi saya.", type: 'R', imageUrl: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=800&auto=format&fit=crop" },
+  { id: 4, text: "Saya merasa puas saat bisa memperbaiki alat elektronik yang rusak.", type: 'R', imageUrl: "https://images.unsplash.com/photo-1620932934088-fbdb2923b78b?q=80&w=800&auto=format&fit=crop" },
+  { id: 5, text: "Saya suka membaca artikel ilmiah atau menonton dokumenter tentang penemuan baru.", type: 'I', imageUrl: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=800&auto=format&fit=crop" },
+  { id: 6, text: "Saya senang memecahkan teka-teki logika atau soal matematika yang menantang.", type: 'I', imageUrl: "https://images.unsplash.com/photo-1550592704-6c76defa9985?q=80&w=800&auto=format&fit=crop" },
+  { id: 7, text: "Saya tertarik untuk melakukan penelitian di laboratorium.", type: 'I', imageUrl: "https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=800&auto=format&fit=crop" },
+  { id: 8, text: "Saya suka menganalisis data untuk menemukan pola atau tren tersembunyi.", type: 'I', imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" },
+  { id: 9, text: "Saya sering mencoret-coret atau menggambar saat bosan.", type: 'A', imageUrl: "https://images.unsplash.com/photo-1583149432413-4e32042189a8?q=80&w=800&auto=format&fit=crop" },
+  { id: 10, text: "Saya menikmati merancang ulang tata letak kamar saya agar terlihat lebih estetis.", type: 'A', imageUrl: "https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=800&auto=format&fit=crop" },
+  { id: 11, text: "Menulis cerita fiksi, puisi, atau lirik lagu adalah hobi saya.", type: 'A', imageUrl: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=800&auto=format&fit=crop" },
+  { id: 12, text: "Saya ingin belajar cara mengedit foto atau video secara profesional.", type: 'A', imageUrl: "https://images.unsplash.com/photo-1572949645841-094f3a9c4c94?q=80&w=800&auto=format&fit=crop" },
+  { id: 13, text: "Saya merasa senang ketika bisa membantu teman yang sedang kesulitan.", type: 'S', imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop" },
+  { id: 14, text: "Saya suka bekerja dalam tim daripada bekerja sendirian.", type: 'S', imageUrl: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop" },
+  { id: 15, text: "Menjadi sukarelawan untuk kegiatan sosial adalah sesuatu yang ingin saya lakukan.", type: 'S', imageUrl: "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=800&auto=format&fit=crop" },
+  { id: 16, text: "Saya pandai menjelaskan konsep yang sulit kepada orang lain.", type: 'S', imageUrl: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800&auto=format&fit=crop" },
+  { id: 17, text: "Saya suka memimpin sebuah proyek atau tim.", type: 'E', imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" },
+  { id: 18, text: "Saya merasa tertantang untuk meyakinkan orang lain agar setuju dengan ide saya.", type: 'E', imageUrl: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=800&auto=format&fit=crop" },
+  { id: 19, text: "Saya tertarik untuk memulai bisnis saya sendiri suatu hari nanti.", type: 'E', imageUrl: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=800&auto=format&fit=crop" },
+  { id: 20, text: "Berbicara di depan umum tidak membuat saya takut, justru bersemangat.", type: 'E', imageUrl: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=800&auto=format&fit=crop" },
+  { id: 21, text: "Saya suka membuat daftar tugas (to-do list) dan merencanakan jadwal saya.", type: 'C', imageUrl: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=800&auto=format&fit=crop" },
+  { id: 22, text: "Saya merasa nyaman bekerja dengan angka dan data.", type: 'C', imageUrl: "https://images.unsplash.com/photo-1611118495123-24d6934a34a3?q=80&w=800&auto=format&fit=crop" },
+  { id: 23, text: "Saya lebih suka mengikuti instruksi yang jelas daripada harus berimprovisasi.", type: 'C', imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop" },
+  { id: 24, text: "Mengorganisir file di komputer atau rak buku membuat saya merasa puas.", type: 'C', imageUrl: "https://images.unsplash.com/photo-1588218732386-20f49375e533?q=80&w=800&auto=format&fit=crop" },
 ];
 
 
 export const INTEREST_PROFILES_DETAIL: { [key: string]: InterestResult } = {
-    R: { 
-        profile: "Realis (The Doer)", 
-        imageUrl: "https://images.unsplash.com/photo-1519962149459-328acb818359?q=80&w=1200&auto=format&fit=crop",
-        description: "Tipe Realis adalah individu yang praktis, membumi, dan mekanis. Anda menikmati pekerjaan yang melibatkan penggunaan tangan, alat, mesin, atau bekerja dengan alam. Anda lebih suka solusi nyata yang bisa dilihat dan disentuh daripada teori abstrak. Kejujuran, kepraktisan, dan keandalan adalah nilai-nilai yang Anda junjung tinggi.",
-        strengths: ["Keterampilan mekanik yang baik", "Praktis dan efisien", "Mahir memecahkan masalah konkret", "Menyukai aktivitas fisik dan outdoor", "Cekatan dan dapat diandalkan"],
-        weaknesses: ["Kurang menyukai tugas-tugas sosial", "Cenderung kaku dan kurang fleksibel", "Kadang kesulitan mengekspresikan ide secara verbal", "Kurang tertarik pada pekerjaan abstrak atau teoritis"],
-    },
-    I: { 
-        profile: "Investigatif (The Thinker)", 
-        imageUrl: "https://images.unsplash.com/photo-1518152006812-edb29b3d39ac?q=80&w=1200&auto=format&fit=crop",
-        description: "Tipe Investigatif adalah pemikir yang analitis, ingin tahu, dan observatif. Anda menikmati proses mengumpulkan informasi, memecahkan masalah yang kompleks, dan memahami bagaimana sesuatu bekerja. Anda didorong oleh rasa penasaran dan lebih suka bekerja secara mandiri untuk mengeksplorasi ide-ide. Presisi dan logika adalah fondasi Anda.",
-        strengths: ["Kemampuan analitis dan logis yang kuat", "Berorientasi pada detail", "Sangat observatif dan teliti", "Menyukai tantangan intelektual", "Mandiri dan persisten dalam memecahkan masalah"],
-        weaknesses: ["Cenderung menghindari peran kepemimpinan", "Kadang terlalu kritis atau perfeksionis", "Kurang nyaman dengan situasi yang sangat sosial atau emosional", "Bisa terjebak dalam 'analysis paralysis'"],
-    },
-    A: { 
-        profile: "Artistik (The Creator)", 
-        imageUrl: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1200&auto=format&fit=crop",
-        description: "Tipe Artistik adalah individu yang kreatif, ekspresif, dan imajinatif. Anda berkembang dalam situasi yang tidak terstruktur di mana Anda dapat menggunakan intuisi dan kreativitas untuk menghasilkan sesuatu yang baru. Anda menghargai keindahan, orisinalitas, dan ekspresi diri, baik melalui tulisan, musik, seni visual, atau pertunjukan.",
-        strengths: ["Sangat kreatif dan inovatif", "Ekspresif dan komunikatif secara non-verbal", "Memiliki intuisi yang kuat", "Berpikiran terbuka dan fleksibel", "Mampu melihat dunia dari perspektif unik"],
-        weaknesses: ["Kadang kurang terorganisir atau tidak praktis", "Sensitif terhadap kritik", "Cenderung menghindari aturan ketat dan rutinitas", "Mungkin kesulitan dengan tugas yang sangat detail dan repetitif"],
-    },
-    S: { 
-        profile: "Sosial (The Helper)", 
-        imageUrl: "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?q=80&w=1200&auto=format&fit=crop",
-        description: "Tipe Sosial adalah penolong yang empatik, kooperatif, dan berorientasi pada orang lain. Anda mendapatkan kepuasan dari membantu, mengajar, merawat, dan berinteraksi dengan orang lain. Anda adalah pendengar yang baik dan pandai membangun hubungan. Keterampilan komunikasi dan kerja sama tim adalah kekuatan terbesar Anda.",
-        strengths: ["Empati dan kepedulian yang tinggi", "Keterampilan interpersonal dan komunikasi yang luar biasa", "Suka bekerja sama dalam tim", "Pandai mengajar dan menjelaskan", "Sabar dan suportif"],
-        weaknesses: ["Cenderung menghindari konflik", "Kadang kesulitan mengambil keputusan yang sulit atau tidak populer", "Bisa mengabaikan kebutuhan diri sendiri demi orang lain", "Kurang tertarik pada pekerjaan yang sangat teknis atau mekanis"],
-    },
-    E: { 
-        profile: "Enterprising (The Persuader)", 
-        imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop",
-        description: "Tipe Enterprising adalah individu yang ambisius, persuasif, dan bersemangat. Anda menikmati peran kepemimpinan, mempengaruhi orang lain, dan mencapai tujuan organisasi atau finansial. Anda berani mengambil risiko, kompetitif, dan memiliki energi tinggi. Anda melihat peluang di mana orang lain melihat tantangan.",
-        strengths: ["Keterampilan kepemimpinan dan persuasi yang kuat", "Percaya diri dan tegas", "Berorientasi pada tujuan dan hasil", "Energik dan optimis", "Pandai berjejaring (networking)"],
-        weaknesses: ["Cenderung tidak sabar dengan detail", "Mungkin terlihat terlalu dominan atau agresif", "Kurang menyukai pekerjaan analitis yang mendalam", "Bisa mengambil risiko yang terlalu besar"],
-    },
-    C: { 
-        profile: "Konvensional (The Organizer)", 
-        imageUrl: "https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=1200&auto=format&fit=crop",
-        description: "Tipe Konvensional adalah pengorganisir yang teliti, efisien, dan taat aturan. Anda unggul dalam lingkungan yang terstruktur di mana Anda dapat bekerja dengan data, angka, dan prosedur yang jelas. Anda menghargai ketertiban, akurasi, dan keandalan. Anda adalah tulang punggung yang memastikan semua sistem berjalan lancar.",
-        strengths: ["Sangat terorganisir dan efisien", "Teliti dan berorientasi pada detail", "Dapat diandalkan dan bertanggung jawab", "Mahir dalam mengikuti prosedur dan aturan", "Praktis dan metodis"],
-        weaknesses: ["Kurang menyukai ambiguitas atau perubahan mendadak", "Cenderung kaku dan kurang fleksibel", "Mungkin kurang nyaman dengan peran kepemimpinan", "Cenderung menghindari tugas yang tidak terstruktur atau kreatif"],
-    },
+  R: {
+    profile: "Realis (The Doer)",
+    imageUrl: "https://images.unsplash.com/photo-1519962149459-328acb818359?q=80&w=1200&auto=format&fit=crop",
+    description: "Tipe Realis adalah individu yang praktis, membumi, dan mekanis. Anda menikmati pekerjaan yang melibatkan penggunaan tangan, alat, mesin, atau bekerja dengan alam. Anda lebih suka solusi nyata yang bisa dilihat dan disentuh daripada teori abstrak. Kejujuran, kepraktisan, dan keandalan adalah nilai-nilai yang Anda junjung tinggi.",
+    strengths: ["Keterampilan mekanik yang baik", "Praktis dan efisien", "Mahir memecahkan masalah konkret", "Menyukai aktivitas fisik dan outdoor", "Cekatan dan dapat diandalkan"],
+    weaknesses: ["Kurang menyukai tugas-tugas sosial", "Cenderung kaku dan kurang fleksibel", "Kadang kesulitan mengekspresikan ide secara verbal", "Kurang tertarik pada pekerjaan abstrak atau teoritis"],
+  },
+  I: {
+    profile: "Investigatif (The Thinker)",
+    imageUrl: "https://images.unsplash.com/photo-1518152006812-edb29b3d39ac?q=80&w=1200&auto=format&fit=crop",
+    description: "Tipe Investigatif adalah pemikir yang analitis, ingin tahu, dan observatif. Anda menikmati proses mengumpulkan informasi, memecahkan masalah yang kompleks, dan memahami bagaimana sesuatu bekerja. Anda didorong oleh rasa penasaran dan lebih suka bekerja secara mandiri untuk mengeksplorasi ide-ide. Presisi dan logika adalah fondasi Anda.",
+    strengths: ["Kemampuan analitis dan logis yang kuat", "Berorientasi pada detail", "Sangat observatif dan teliti", "Menyukai tantangan intelektual", "Mandiri dan persisten dalam memecahkan masalah"],
+    weaknesses: ["Cenderung menghindari peran kepemimpinan", "Kadang terlalu kritis atau perfeksionis", "Kurang nyaman dengan situasi yang sangat sosial atau emosional", "Bisa terjebak dalam 'analysis paralysis'"],
+  },
+  A: {
+    profile: "Artistik (The Creator)",
+    imageUrl: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1200&auto=format&fit=crop",
+    description: "Tipe Artistik adalah individu yang kreatif, ekspresif, dan imajinatif. Anda berkembang dalam situasi yang tidak terstruktur di mana Anda dapat menggunakan intuisi dan kreativitas untuk menghasilkan sesuatu yang baru. Anda menghargai keindahan, orisinalitas, dan ekspresi diri, baik melalui tulisan, musik, seni visual, atau pertunjukan.",
+    strengths: ["Sangat kreatif dan inovatif", "Ekspresif dan komunikatif secara non-verbal", "Memiliki intuisi yang kuat", "Berpikiran terbuka dan fleksibel", "Mampu melihat dunia dari perspektif unik"],
+    weaknesses: ["Kadang kurang terorganisir atau tidak praktis", "Sensitif terhadap kritik", "Cenderung menghindari aturan ketat dan rutinitas", "Mungkin kesulitan dengan tugas yang sangat detail dan repetitif"],
+  },
+  S: {
+    profile: "Sosial (The Helper)",
+    imageUrl: "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?q=80&w=1200&auto=format&fit=crop",
+    description: "Tipe Sosial adalah penolong yang empatik, kooperatif, dan berorientasi pada orang lain. Anda mendapatkan kepuasan dari membantu, mengajar, merawat, dan berinteraksi dengan orang lain. Anda adalah pendengar yang baik dan pandai membangun hubungan. Keterampilan komunikasi dan kerja sama tim adalah kekuatan terbesar Anda.",
+    strengths: ["Empati dan kepedulian yang tinggi", "Keterampilan interpersonal dan komunikasi yang luar biasa", "Suka bekerja sama dalam tim", "Pandai mengajar dan menjelaskan", "Sabar dan suportif"],
+    weaknesses: ["Cenderung menghindari konflik", "Kadang kesulitan mengambil keputusan yang sulit atau tidak populer", "Bisa mengabaikan kebutuhan diri sendiri demi orang lain", "Kurang tertarik pada pekerjaan yang sangat teknis atau mekanis"],
+  },
+  E: {
+    profile: "Enterprising (The Persuader)",
+    imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop",
+    description: "Tipe Enterprising adalah individu yang ambisius, persuasif, dan bersemangat. Anda menikmati peran kepemimpinan, mempengaruhi orang lain, dan mencapai tujuan organisasi atau finansial. Anda berani mengambil risiko, kompetitif, dan memiliki energi tinggi. Anda melihat peluang di mana orang lain melihat tantangan.",
+    strengths: ["Keterampilan kepemimpinan dan persuasi yang kuat", "Percaya diri dan tegas", "Berorientasi pada tujuan dan hasil", "Energik dan optimis", "Pandai berjejaring (networking)"],
+    weaknesses: ["Cenderung tidak sabar dengan detail", "Mungkin terlihat terlalu dominan atau agresif", "Kurang menyukai pekerjaan analitis yang mendalam", "Bisa mengambil risiko yang terlalu besar"],
+  },
+  C: {
+    profile: "Konvensional (The Organizer)",
+    imageUrl: "https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=1200&auto=format&fit=crop",
+    description: "Tipe Konvensional adalah pengorganisir yang teliti, efisien, dan taat aturan. Anda unggul dalam lingkungan yang terstruktur di mana Anda dapat bekerja dengan data, angka, dan prosedur yang jelas. Anda menghargai ketertiban, akurasi, dan keandalan. Anda adalah tulang punggung yang memastikan semua sistem berjalan lancar.",
+    strengths: ["Sangat terorganisir dan efisien", "Teliti dan berorientasi pada detail", "Dapat diandalkan dan bertanggung jawab", "Mahir dalam mengikuti prosedur dan aturan", "Praktis dan metodis"],
+    weaknesses: ["Kurang menyukai ambiguitas atau perubahan mendadak", "Cenderung kaku dan kurang fleksibel", "Mungkin kurang nyaman dengan peran kepemimpinan", "Cenderung menghindari tugas yang tidak terstruktur atau kreatif"],
+  },
 };
