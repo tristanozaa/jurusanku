@@ -1,0 +1,19 @@
+minta tolong @Rado Undip, aku minta tolong:
+[ ] fitur yang perlu diimplementasi
+    [ ] popup/pemberitahuan cek email saat daftar
+    [ ] backend sistem pembayaran
+[ ] fitur yang perlu difix
+    [ ] ai
+        [ ] gak fungsi sama sekali, dia cuma "mengetik" tulisannya -> terjadi di local maupun ketika udah deploy
+        [ ] buat supaya bisa interaksi dengan ai walau engga tes minat
+    [ ] tes minat
+        [ ] jumlah tes minat harusnya sama untuk setiap dimensi, buat supaya dimensinya 24
+        [ ] buat supaya hasil tes minat tersimpan ke dalam database user
+        [ ] bagian gambarnya hilang
+    [ ] ui -> animasinya hilang, buat supaya smooth
+    [ ] database
+        [ ] ini aku ngematiin row level security biar backendnya bisa, tapi katanya ini gak bagus secara security... nah ini gimana mau difix atau engga?
+
+saran:
+1. coba tanya ke ai studio, untuk implementasi fitur-fitur ini perlu akses & ubah file yang mana aja. setelah itu, isi dari file itu kamu copy terus tanya2 ke gemini.
+2. mungkin/kayaknya yang animasi itu perlu akses banyak file sekaligus, kalau kesusahan gausah aja mungkin?
