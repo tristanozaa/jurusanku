@@ -1,69 +1,89 @@
 // Ini adalah KODE FRONTEND Anda (Aman)
 // (File ini yang Anda impor di App.tsx)
 
-import React from 'react';
-import { supabase } from '../services/supabaseClient'; // Path ke klien Supabase Anda
-import { useAppContext } from '../context/AppContext';
+import React from "react";
+import { supabase } from "../services/supabaseClient"; // Path ke klien Supabase Anda
+import { useAppContext } from "../context/AppContext";
 
 // Definisikan tipe untuk riwayat chat
 type ChatMessage = {
-  role: 'user' | 'model';
+  role: "user" | "model";
   parts: { text: string }[];
 };
 
 const KonsultasiAIPage: React.FC = () => {
-  const [message, setMessage] = React.useState('');
+  const [message, setMessage] = React.useState("");
   const [chatHistory, setChatHistory] = React.useState<ChatMessage[]>([]);
   const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState('');
+  const [error, setError] = React.useState("");
 
   // Ambil konteks (jika ada)
   const { interestProfile, recommendedMajors } = useAppContext();
+
+  // === PERUBAHAN DIMULAI DI SINI ===
+
+  // 1. Buat sebuah ref untuk "penanda" di bagian bawah chat
+  const messagesEndRef = React.useRef<null | HTMLDivElement>(null);
+
+  // 2. Buat fungsi untuk scroll ke bawah
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // 3. Panggil fungsi scrollToBottom setiap kali
+  //    chatHistory atau status loading berubah
+  React.useEffect(() => {
+    scrollToBottom();
+  }, [chatHistory, loading]);
+
+  // === PERUBAHAN SELESAI ===
 
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!message || loading) return;
 
     setLoading(true);
-    setError('');
+    setError("");
 
     const userMessage: ChatMessage = {
-      role: 'user',
+      role: "user",
       parts: [{ text: message }],
     };
 
     // Optimistic update: Tampilkan pesan pengguna segera
     const newHistory = [...chatHistory, userMessage];
     setChatHistory(newHistory);
-    setMessage('');
+    setMessage("");
 
     try {
       // 1. Panggil Supabase Edge Function (Backend)
-      const { data, error: funcError } = await supabase.functions.invoke('gemini-consult', {
-        body: {
-          message: message,
-          history: newHistory.slice(0, -1), // Kirim riwayat SEBELUM pesan baru
-          interestProfile: interestProfile,
-          recommendedMajors: recommendedMajors
-        },
-      });
+      const { data, error: funcError } = await supabase.functions.invoke(
+        "gemini-consult",
+        {
+          body: {
+            message: message,
+            history: newHistory.slice(0, -1), // Kirim riwayat SEBELUM pesan baru
+            interestProfile: interestProfile,
+            recommendedMajors: recommendedMajors,
+          },
+        }
+      );
 
       if (funcError) {
         throw funcError;
       }
 
       const modelMessage: ChatMessage = {
-        role: 'model',
+        role: "model",
         parts: [{ text: data.reply }],
       };
 
       // 2. Tambahkan respons dari AI ke riwayat
-      setChatHistory(prevHistory => [...prevHistory, modelMessage]);
-
+      setChatHistory((prevHistory) => [...prevHistory, modelMessage]);
     } catch (err: any) {
-      setError(err.message || 'Gagal terhubung ke AI. Coba lagi nanti.');
+      setError(err.message || "Gagal terhubung ke AI. Coba lagi nanti.");
       // Rollback optimistic update jika gagal
-      setChatHistory(prevHistory => prevHistory.slice(0, -1));
+      setChatHistory((prevHistory) => prevHistory.slice(0, -1));
     } finally {
       setLoading(false);
     }
@@ -71,17 +91,25 @@ const KonsultasiAIPage: React.FC = () => {
 
   return (
     <div className="flex flex-col h-[70vh] max-w-2xl mx-auto bg-white shadow-xl rounded-2xl">
-      <h1 className="text-2xl font-bold text-center p-4 border-b">Konsultasi AI</h1>
+      <h1 className="text-2xl font-bold text-center p-4 border-b">
+        Konsultasi AI
+      </h1>
 
       {/* Area Chat */}
       <div className="flex-1 p-4 space-y-4 overflow-y-auto">
         {chatHistory.map((msg, index) => (
-          <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+          <div
+            key={index}
+            className={`flex ${
+              msg.role === "user" ? "justify-end" : "justify-start"
+            }`}
+          >
             <div
-              className={`p-3 rounded-lg max-w-xs ${msg.role === 'user'
-                  ? 'bg-teal-600 text-white'
-                  : 'bg-gray-200 text-gray-800'
-                }`}
+              className={`p-3 rounded-lg max-w-xs ${
+                msg.role === "user"
+                  ? "bg-teal-600 text-white"
+                  : "bg-gray-200 text-gray-800"
+              }`}
             >
               {msg.parts[0].text}
             </div>
@@ -92,6 +120,10 @@ const KonsultasiAIPage: React.FC = () => {
             <div className="p-3 rounded-lg bg-gray-200 text-gray-500">
               Mengetik...
             </div>
+            {/* === TAMBAHKAN DIV DI BAWAH INI === */}
+            {/* Ini adalah penanda tak terlihat yang kita tuju */}
+            <div ref={messagesEndRef} />
+            {/* === AKHIR TAMBAHAN === */}
           </div>
         )}
       </div>

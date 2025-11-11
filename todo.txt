@@ -1,25 +1,28 @@
-minta tolong @192677131849768 , aku minta tolong:
-[ ] fitur yang perlu diimplementasi
-    [ ] popup/pemberitahuan cek email saat daftar
-    [ ] backend sistem pembayaran
-[ ] fitur yang perlu difix
-    [ ] ai
-        [x] gak fungsi sama sekali, dia cuma "mengetik" tulisannya -> terjadi di local maupun ketika udah deploy
-        [x] buat supaya bisa interaksi dengan ai walau engga tes minat
-        [ ] supaya dia autoscroll
-    [ ] tes minat
-        [x] jumlah tes minat harusnya sama untuk setiap dimensi, buat supaya dimensinya 24
-        [ ] buat supaya hasil tes minat tersimpan ke dalam database user
-        [ ] bagian gambarnya hilang
-    [x] ui -> animasinya hilang, buat supaya smooth -> load animationnya gak ada
-    [ ] supabase
-        [ ] ini aku ngematiin row level security biar backendnya bisa, tapi katanya ini gak bagus secara security... nah ini gimana mau difix atau engga?
-        [x] fixed duplicate warning
-        [x] onclick close
-
-[] ux
-    [ ] animasi memproses ketika menunggu jawaban ai dan juga ketika register/login
-
+[ ] umum
+    [x] fix animasi
+    [x] fix gotrueclient -> menghapus duplikat inisialisasi api -> alhasil website berjalan lebih konsisten
+    [ ] fix warning baru :)
+[x] beranda
+[ ] jurusan
+    [x] user experience: seharusnya bisa klik mana aja buat ngeclose jurusan
+    [ ] kalau jurusan dipencet, dia background gelapnya gak full layar ->  tolong fix
+[ ] tes minat
+    [ ] beberapa gambar gak muncul -> perhatikan halaman mana yang gak muncul lalu ganti link
+    [ ] buat supaya hasil tes minat ini masuk database? -> kira-kira fungsionalitas yang bisa dipake buat apa aja?
+[ ] konsultasi ai
+    [x] seharusnya udah autoscroll kalau muncul pesan baru... seharusnya.
+    [ ] access control allow origin lagi pepek -> ini harusnya bisa kamu fix sendiri sih do... -> apa jangan2 ini gara2 aku habis folder lib? just in case...
+    [ ] perlu semacam animasi ketika menunggu respons ai
+[ ] akun
+    [x] konfirmasi untuk cek email ketika register
+    [ ] ??? kenapa kok email dari supabase kosong banget ya?
+    [ ] ??? sign-in/login menggunakan google? -> dah nemu fiturnya, ini kayaknya tinggal ngasih uinya doang sih... nah itu agak pr, harus minta aistudio lagi buat generate...
+    [ ] sistem pembayaran -> woi ini ternyata gak bisa pake supabase anjir, pake paypal/loveable/stripe... mau pake saweria po awkokoawkoaw -> ribet yak bangsat
+        https://youtu.be/uC_K3HF8lFQ?si=ijofIc5Z6gqVawsn
+        https://www.youtube.com/watch?v=4SK5LRemVqA
+    [ ] ayo eksplor fitur supabase bareng aku -> masih banyak yang belum jelas, kenapa kok kita kena logout terus blablabla, perlu diinvestigasi lagi
+    [ ] keamanan database: kita ngematiin row-level security, entah ini aman atau engga, tapi kalau dihidupin gak bisa bikin akun (kayaknya ini lebih ke quick fix sih, seharusnya bisa dibenerin)
+[ ] jangan lupa di akhir nanti githubnya dibikin privat bangke. malu njir, masak messagenya: "kontol", "miaw miaw", "push meong", "rado ai"
 
 tolong kalau fiturnya dah ketemu fixnya (dan work) langsung push di github aja, bingung aku kalau disuruh implementasi.
 

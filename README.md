@@ -16,3 +16,7 @@ npm run dev
 4. kalau udah pakai api di deployment, kamu juga harus perhatiin di backend juga (supabase), bikin dulu edge functionnya supaya bisa berfungsi
 
 ## sedih
+
+sedih woi, ini pake ai tanpa pemahaman webdev sama sekali itu lose-lose situation (ditambah pakai ai kroco itu bikin mati sih), kayaknya bakal sering deh kita dikasih solusi dimana solusi itu bukan yang paling efektif.
+
+'kan aku nyuruh gemini buat ngeclose ketika diklik. tai loh ya, masak udah jelas tertera dicode kalau ada fungsi onclose, dia malah bikin fungsi baru handleonclick.
