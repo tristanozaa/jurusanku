@@ -2,6 +2,7 @@
     [x] fix animasi
     [x] fix gotrueclient -> menghapus duplikat inisialisasi api -> alhasil website berjalan lebih konsisten
     [ ] fix warning baru :)
+    [ ] kenapa kok kalau misalnya kita jalanin website ini di dua tab sekaligus, dia jadi rusak...
 [x] beranda
 [ ] jurusan
     [x] user experience: seharusnya bisa klik mana aja buat ngeclose jurusan
@@ -11,6 +12,7 @@
     [ ] buat supaya hasil tes minat ini masuk database? -> kira-kira fungsionalitas yang bisa dipake buat apa aja?
 [ ] konsultasi ai
     [x] seharusnya udah autoscroll kalau muncul pesan baru... seharusnya.
+    [ ] kasih account wall / payment wall, jadi misalnya kalau pengguna yang masuk tanpa akun atau pake akun free, nanti halaman itu kekunci dan ada tulisannya kalau ini fitur berbayar
     [ ] access control allow origin lagi pepek -> ini harusnya bisa kamu fix sendiri sih do... -> apa jangan2 ini gara2 aku habis folder lib? just in case...
     [ ] perlu semacam animasi ketika menunggu respons ai
 [ ] akun
@@ -23,9 +25,12 @@
     [ ] ayo eksplor fitur supabase bareng aku -> masih banyak yang belum jelas, kenapa kok kita kena logout terus blablabla, perlu diinvestigasi lagi
     [ ] keamanan database: kita ngematiin row-level security, entah ini aman atau engga, tapi kalau dihidupin gak bisa bikin akun (kayaknya ini lebih ke quick fix sih, seharusnya bisa dibenerin)
 [ ] jangan lupa di akhir nanti githubnya dibikin privat bangke. malu njir, masak messagenya: "kontol", "miaw miaw", "push meong", "rado ai"
+[ ] buat ppt kalau misalnya disuruh
+[ ] latihan presentasi, kira2 pertanyaan2 apa yang akan muncul
 
 tolong kalau fiturnya dah ketemu fixnya (dan work) langsung push di github aja, bingung aku kalau disuruh implementasi.
 
 saran:
 1. coba tanya ke ai studio, untuk implementasi fitur-fitur ini perlu akses & ubah file yang mana aja. setelah itu, isi dari file itu kamu copy terus tanya2 ke gemini.
 2. mungkin/kayaknya yang animasi itu perlu akses banyak file sekaligus, kalau kesusahan gausah aja mungkin?
+3. ada beberapa fitur, misalnya ui itu aku rasa harus konsultasi langsung ke aistudio deh, gabisa ke gemini...
