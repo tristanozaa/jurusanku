@@ -6,7 +6,7 @@ import React, {
   useEffect,
 } from "react";
 import { Session, User as SupabaseUser } from "@supabase/supabase-js";
-import { supabase } from "../lib/supabase";
+import { supabase } from "../services/supabaseClient";
 import { InterestResult, Jurusan, User } from "../types";
 
 interface AppContextType {

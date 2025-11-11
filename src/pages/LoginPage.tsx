@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // IMPOR DIGANTI DARI FIREBASE KE SUPABASE
 // PERBAIKAN: Path diubah dari 'services' ke 'lib' agar sesuai struktur folder Anda
-import { supabase } from "../lib/supabase";
+import { supabase } from "../services/supabaseClient";
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
