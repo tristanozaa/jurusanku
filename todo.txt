@@ -12,7 +12,7 @@
     [ ] buat supaya hasil tes minat ini masuk database? -> kira-kira fungsionalitas yang bisa dipake buat apa aja?
 [ ] konsultasi ai
     [x] seharusnya udah autoscroll kalau muncul pesan baru... seharusnya.
-    [ ] kasih account wall / payment wall, jadi misalnya kalau pengguna yang masuk tanpa akun atau pake akun free, nanti halaman itu kekunci dan ada tulisannya kalau ini fitur berbayar
+    [ ] kasih account wall / payment wall, jadi misalnya kalau pengguna yang masuk tanpa akun atau pake akun free, nanti halaman itu kekunci dan ada tulisannya kalau ini fitur berbayar -> kayaknya ini udah deh?? coba cek dari logout sama akun free
     [ ] access control allow origin lagi pepek -> ini harusnya bisa kamu fix sendiri sih do... -> apa jangan2 ini gara2 aku habis folder lib? just in case...
     [ ] perlu semacam animasi ketika menunggu respons ai
 [ ] akun
