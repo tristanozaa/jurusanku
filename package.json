@@ -13,7 +13,8 @@
     "@supabase/supabase-js": "^2.43.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.9.5"
+    "react-router-dom": "^7.9.5",
+    "supabase": "^2.54.11"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
