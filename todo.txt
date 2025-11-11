@@ -8,12 +8,18 @@ minta tolong @192677131849768 , aku minta tolong:
         [x] buat supaya bisa interaksi dengan ai walau engga tes minat
         [ ] supaya dia autoscroll
     [ ] tes minat
-        [ ] jumlah tes minat harusnya sama untuk setiap dimensi, buat supaya dimensinya 24
+        [x] jumlah tes minat harusnya sama untuk setiap dimensi, buat supaya dimensinya 24
         [ ] buat supaya hasil tes minat tersimpan ke dalam database user
         [ ] bagian gambarnya hilang
-    [ ] ui -> animasinya hilang, buat supaya smooth -> load animationnya gak ada
-    [ ] database
+    [x] ui -> animasinya hilang, buat supaya smooth -> load animationnya gak ada
+    [ ] supabase
         [ ] ini aku ngematiin row level security biar backendnya bisa, tapi katanya ini gak bagus secara security... nah ini gimana mau difix atau engga?
+        [x] fixed duplicate warning
+        [x] onclick close
+
+[] ux
+    [ ] animasi memproses ketika menunggu jawaban ai dan juga ketika register/login
+
 
 tolong kalau fiturnya dah ketemu fixnya (dan work) langsung push di github aja, bingung aku kalau disuruh implementasi.
 
