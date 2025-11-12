@@ -3,6 +3,7 @@
     [x] fix gotrueclient -> menghapus duplikat inisialisasi api -> alhasil website berjalan lebih konsisten
     [ ] fix warning baru :)
     [ ] kenapa kok kalau misalnya kita jalanin website ini di dua tab sekaligus, dia jadi rusak...
+    [ ] fix supabase slow performance
 [x] beranda
 [ ] jurusan
     [x] user experience: seharusnya bisa klik mana aja buat ngeclose jurusan
